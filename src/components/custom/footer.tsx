@@ -57,10 +57,10 @@ const Footer = () => {
             <div className=" border-white text-center md:text-left ">
               <h1 className="font-bold text-lg ">Download From</h1>
               <div className="flex items-center justify-between md:justify-start">
-                <Button className="bg-white border-2 b text-primary hover:bg-primary hover:border-white hover:text-white mr-4 font-extrabold  hover:scale-110 transition-all ease-in-out delay-300 duration-1000">
+                <Button className="bg-white border-2 b text-primary hover:bg-primary hover:border-white hover:text-white mr-4 font-extrabold  hover:scale-110 transition-all ease-out delay-150 duration-700">
                   Google Play
                 </Button>
-                <Button className="bg-white border-2 b text-primary hover:bg-primary hover:border-white hover:text-white font-extrabold  hover:scale-110 transition-all ease-in-out delay-300 duration-1000">
+                <Button className="bg-white border-2 b text-primary hover:bg-primary hover:border-white hover:text-white font-extrabold  hover:scale-110 transition-all ease-in-out delay-150 duration-700">
                   App Store
                 </Button>
               </div>
