@@ -36,13 +36,28 @@ const Header = () => {
         </div>
         <div className="flex items-center gap-4">
           <ul className="flex items-center font-medium  space-x-4">
+          <li>
+              <Link className="hover:text-primary" href={"/home"}>
+                Home
+              </Link>
+            </li> 
             <li>
-              <Link className="hover:text-primary" href={"/"}>
+              <Link className="hover:text-primary" href={"/about"}>
+                About
+              </Link>
+            </li> 
+            <li>
+              <Link className="hover:text-primary" href={"/contact"}>
+                Contact
+              </Link>
+            </li> 
+            <li>
+              <Link className="hover:text-primary" href={"/menu"}>
                 Menu
               </Link>
             </li>
             <li>
-              <Link className="hover:text-primary" href={"/"}>
+              <Link className="hover:text-primary" href={"/orders"}>
                 Orders
               </Link>
             </li>
