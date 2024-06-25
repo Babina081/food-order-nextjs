@@ -52,8 +52,8 @@ const products: Product[] = [
 export default function Home() {
   return (
     <>
-      <section className="bg-white">
-        <div className="container flex items-center justify-between py-24">
+      <section className="bg-white  py-44">
+        <div className="container flex items-center justify-between ">
           <div>
             <h1 className="text-7xl font-black font-sans ">
               Delivering satisfaction everyday
