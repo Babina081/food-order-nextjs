@@ -1,0 +1,36 @@
+Project Documentation: Food Order Web App
+
+Overview
+This documentation provides an overview of the Food Order Web App project, detailing its structure, technologies used, and focus areas.
+
+Project Details
+Framework: Next.js
+Styling: Tailwind CSS
+Language: TypeScript
+UI Components: Shadcn UI
+Icons: Lucid Icons
+Fonts: Manrope (Google Font)
+Type: Static Web Application
+Focus: UI Design
+
+Introduction
+The Food Order Web App is a static web application developed primarily for ordering food online. It leverages modern web technologies to provide a responsive and visually appealing user interface.
+
+Technologies Used
+Next.js: Next.js is a React framework that enables server-side rendering and provides a robust structure for building web applications.
+Tailwind CSS: Tailwind CSS is used for styling, offering utility-first CSS classes that help in rapid UI development without writing custom CSS.
+TypeScript: TypeScript adds static typing to JavaScript, enhancing code quality and developer productivity by catching errors early in the development process.
+
+Design Elements
+Shadcn UI: Shadcn UI components are utilized for building the user interface. These components are designed to be sleek and functional, enhancing the overall user experience.
+Lucid Icons: Lucid Icons provide a set of clean and modern icons that are integrated throughout the application, improving visual communication and usability.
+Manrope Font: The Manrope font from Google Fonts is used for typography, ensuring a consistent and readable text across the application.
+
+Application Type
+The project is developed as a static web application, ensuring fast load times and improved performance for end-users.
+
+Focus on UI Design
+The primary focus of this project is on UI design. Special attention has been given to creating a user-friendly interface that is intuitive and aesthetically pleasing.
+
+Conclusion
+This documentation outlines the key aspects of the Food Order Web App project, including its technologies, design elements, and development focus. It serves as a guide for understanding the architecture and goals of the application.
