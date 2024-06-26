@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Select,
   SelectContent,
@@ -8,14 +9,62 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import Link from "next/link";
-import { Phone, ShoppingBasket } from "lucide-react";
+import {
+  AlignHorizontalJustifyEnd,
+  Contact,
+  HandPlatter,
+  Info,
+  InfoIcon,
+  ScrollText,
+  ShoppingBasket,
+  Soup,
+} from "lucide-react";
 import { Button } from "../ui/button";
 
+interface MenuItem {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+const menuItems: MenuItem[] = [
+  {
+    name: "Home",
+    url: "/home",
+    icon: "AlignHorizontalJustifyEnd",
+  },
+  { name: "About", url: "/about", icon: "Info" },
+  { name: "Contact", url: "/contact", icon: "Contact" },
+  { name: "Menu", url: "/menu", icon: "ScrollText" },
+  { name: "Orders", url: "/orders", icon: "HandPlatter" },
+];
+
 const Header = () => {
+  useEffect(() => {
+    let menuBtn = document.querySelector(".menu-btn");
+    let navMenu = document.querySelector(".nav-items-toogle");
+
+    if (menuBtn) {
+      menuBtn.addEventListener("click", () => {
+        menuBtn.classList.toggle("active");
+        navMenu?.classList.toggle("active");
+      });
+    }
+
+    return () => {
+      if (menuBtn) {
+        menuBtn.addEventListener("click", () => {
+          menuBtn.classList.toggle("active");
+          navMenu?.classList.toggle("active");
+        });
+      }
+    };
+  }, []);
+
   return (
-    <header className="bg-white fixed z-1 w-full mx-auto  ">
-      <nav className="container py-5 flex items-center justify-between ">
-        <div className="flex items-center space-x-4">
+    <header className="bg-white fixed z-10 w-full mx-auto   ">
+      <nav className="container py-5 flex items-center  justify-between ">
+        <div className="flex items-center space-x-4 cursor-pointer">
           <Image
             src="food-logo.svg"
             alt="logo"
@@ -24,34 +73,23 @@ const Header = () => {
             className="bg-transparent"
           ></Image>
         </div>
-        <div className="flex items-center gap-4">
-          <ul className="flex items-center font-medium  space-x-4">
-            <li>
-              <Link className="hover:text-primary" href={"/home"}>
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary" href={"/about"}>
-                About
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary" href={"/contact"}>
-                Contact
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary" href={"/menu"}>
-                Menu
-              </Link>
-            </li>
-            <li>
-              <Link className="hover:text-primary" href={"/orders"}>
-                Orders
-              </Link>
-            </li>
-          </ul>
+        <div className="menu-btn flex lg:hidden  gap-5 ">
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
+        </div>
+        <div className="hidden md:hidden lg:flex items-center gap-8 ">
+          {menuItems.map((item, i) => {
+            return (
+              <ul className="flex items-center font-medium  space-x-4" key={i}>
+                <li>
+                  <Link className="hover:text-primary" href={item.url}>
+                    {item.name}
+                  </Link>
+                </li>
+              </ul>
+            );
+          })}
 
           <Select>
             <SelectTrigger className="w-[180px] focus:ring-0">
@@ -65,7 +103,9 @@ const Header = () => {
           </Select>
 
           <Button size={"sm"}>Sign In</Button>
-          <Button size={"sm"}>Sign Up</Button>
+          <Button size={"sm"} className="inline-flex">
+            Sign Up
+          </Button>
           <div className="relative">
             <Link href="/cart">
               <ShoppingBasket className="hover:text-primary" />
@@ -76,6 +116,59 @@ const Header = () => {
           </div>
         </div>
       </nav>
+      <div className="nav-items-toogle flex lg:hidden absolute top-24 left-0 border-l-2 border-b-2 border-primary rounded-bl-2xl justify-center items-center h-auto w-full z-10 bg-[#ffefba]">
+        <ul className="p-2 w-[20%] flex flex-col   gap-2 ml-10">
+          {menuItems.map((item, i) => {
+            return (
+              <li className="" key={i}>
+                <Link
+                  className="hover:text-primary text-lg font-bold   w-full flex gap-4 md:gap-2"
+                  href={item.url}
+                >
+                  <div className=" w-1/4">
+                    {item.icon === "AlignHorizontalJustifyEnd" && (
+                      <AlignHorizontalJustifyEnd />
+                    )}
+                    {item.icon === "Info" && <Info />}
+                    {item.icon === "Contact" && <Contact />}
+                    {item.icon === "ScrollText" && <ScrollText />}
+                    {item.icon === "HandPlatter" && <HandPlatter />}
+                  </div>
+                  <div className=" w-3/4">{item.name}</div>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+        {/* {menuItems.map((item, i) => {
+          return (
+            <ul
+              className="flex items-center font-medium  justify-center mx-auto gap-10 "
+              key={i}
+            >
+              {" "}
+              <li className="p-2 ">
+                <Link
+                  className="hover:text-primary text-lg font-bold flex  items-center  justify-center bg-red-400"
+                  href={item.url}
+                >
+                  <div className="flex justify-start ">
+                    {item.icon === "AlignHorizontalJustifyEnd" && (
+                      <AlignHorizontalJustifyEnd />
+                    )}
+                    {item.icon === "Info" && <Info />}
+                    {item.icon === "Contact" && <Contact />}
+                    {item.icon === "ScrollText" && <ScrollText />}
+                    {item.icon === "HandPlatter" && <HandPlatter />}
+                  </div>
+
+                  <span className="ml-4">{item.name}</span>
+                </Link>
+              </li>{" "}
+            </ul>
+          );
+        })} */}
+      </div>
     </header>
   );
 };
