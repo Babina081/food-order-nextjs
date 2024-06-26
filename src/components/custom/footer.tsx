@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
-import Image from "next/image";
+
 
 const Footer = () => {
   return (
