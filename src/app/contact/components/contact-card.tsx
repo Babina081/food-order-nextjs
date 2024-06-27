@@ -10,7 +10,7 @@ const ContactCard = () => {
         return (
           <div
             key={id}
-            className={`border border-primary/30 flex flex-col items-center rounded-xl p-4 shadow-md shadow-primary/30'}`}
+            className={` flex flex-col items-center rounded-xl p-4 shadow-md shadow-white/30 border border-primary/30 '}`}
           >
             {info.icon === "MapPin" && (
               <MapPin
