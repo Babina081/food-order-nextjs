@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect } from "react";
+import React, {  useState } from "react";
 import {
   Select,
   SelectContent,
@@ -30,7 +30,7 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     name: "Home",
-    url: "/home",
+    url: "/",
     icon: "AlignHorizontalJustifyEnd",
   },
   { name: "About", url: "/about", icon: "Info" },
@@ -40,31 +40,20 @@ const menuItems: MenuItem[] = [
 ];
 
 const Header = () => {
-  useEffect(() => {
-    let menuBtn = document.querySelector(".menu-btn");
-    let navMenu = document.querySelector(".nav-items-toogle");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    if (menuBtn) {
-      menuBtn.addEventListener("click", () => {
-        menuBtn.classList.toggle("active");
-        navMenu?.classList.toggle("active");
-      });
-    }
-
-    return () => {
-      if (menuBtn) {
-        menuBtn.addEventListener("click", () => {
-          menuBtn.classList.toggle("active");
-          navMenu?.classList.toggle("active");
-        });
-      }
-    };
-  }, []);
+  const closeMenu = () => {
+    setIsMenuOpen(false); // Function to close menu
+  };
 
   return (
     <header className="bg-white fixed z-10 w-full ">
       <nav className="container   py-5 flex items-center  justify-between  ">
-        <Link href={"/"} className="flex items-center space-x-4 cursor-pointer">
+        <Link
+          href={"/"}
+          className="flex items-center space-x-4 cursor-pointer"
+          passHref
+        >
           <Image
             src="food-logo.svg"
             alt="logo"
@@ -73,7 +62,10 @@ const Header = () => {
             className="bg-transparent w-20 h-10  "
           ></Image>
         </Link>
-        <div className="menu-btn flex lg:hidden  gap-5 ">
+        <div
+          className="menu-btn flex lg:hidden  gap-5 "
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
@@ -82,8 +74,8 @@ const Header = () => {
           <ul className="flex items-center font-medium  space-x-4">
             {menuItems.map((item, i) => {
               return (
-                <li key={i}>
-                  <Link className="hover:text-primary" href={item.url}>
+                <li key={i} className={`nav-item-${i}`}>
+                  <Link className="hover:text-primary" href={item.url} passHref>
                     {item.name}
                   </Link>
                 </li>
@@ -108,7 +100,7 @@ const Header = () => {
             </Button>
           </div>
           <div className="relative">
-            <Link href="/cart">
+            <Link href="/cart" passHref>
               <ShoppingBasket className="hover:text-primary" />
             </Link>
             <span className="absolute -top-4 -right-4 items-center flex justify-center rounded-full bg-primary font-bold text-white w-6 h-6">
@@ -117,14 +109,19 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="nav-items-toogle flex lg:hidden absolute top-20 left-0 border-l-2 border-b-2 border-primary rounded-bl-2xl justify-center items-center h-auto w-full z-10 bg-[#ffefba]">
+      <div
+        className={`nav-items-toogle flex lg:hidden absolute top-20 left-0 border-l-2 border-b-2 border-primary rounded-bl-2xl justify-center items-center h-auto w-full z-10 bg-[#ffefba] ${
+          isMenuOpen ? "active" : ""
+        }`}
+      >
         <ul className="p-2 w-[20%] flex flex-col   gap-2 ml-10">
           {menuItems.map((item, i) => {
             return (
-              <li className="" key={i}>
+              <li className="" key={i} onClick={closeMenu}>
                 <Link
                   className="hover:text-primary text-lg font-bold   w-full flex gap-4 md:gap-2"
                   href={item.url}
+                  passHref
                 >
                   <div className=" w-1/4">
                     {item.icon === "AlignHorizontalJustifyEnd" && (
