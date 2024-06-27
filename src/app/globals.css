@@ -128,3 +128,535 @@
 .nav-items-toogle.active {
   transform: translateX(0);
 }
+
+/* HTML: <div class="loader"></div> */
+/* .loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  background: radial-gradient(circle closest-side, orangered 94%, #0000)
+    right/calc(200% - 1em) 100%;
+  animation: l24 1s infinite alternate linear;
+}
+.loader::before {
+  content: "Loading...";
+  line-height: 1em;
+  color: #0000;
+  background: inherit;
+  background-image: radial-gradient(circle closest-side, #fff 94%, orangered);
+  -webkit-background-clip: text;
+  background-clip: text;
+} */
+
+@keyframes l24 {
+  100% {
+    background-position: left;
+  }
+}
+
+/* hamburger loading  */
+.load {
+  /* position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%; */
+}
+
+.ham-h1 {
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  color: white;
+  text-shadow: -1px -1px 0 orangered, 1px -1px 0 orangered, -1px 1px 0 orangered,
+    1px 1px 0 orangered;
+}
+
+/* Hamburger */
+
+.hamburger {
+  width: 160px;
+  height: 165px;
+}
+
+.hamburger div:nth-child(1) {
+  z-index: 9;
+}
+
+.hamburger div:nth-child(2) {
+  z-index: 8;
+  animation: animate-pickle-1 2s infinite;
+}
+
+.hamburger div:nth-child(3) {
+  z-index: 7;
+  animation: animate-pickle-2 2s infinite;
+}
+
+.hamburger div:nth-child(4) {
+  z-index: 5;
+  animation: animate-tomato-1 2s infinite;
+}
+
+.hamburger div:nth-child(5) {
+  z-index: 6;
+  animation: animate-tomato-2 2s infinite;
+}
+
+.hamburger div:nth-child(6) {
+  z-index: 4;
+  animation: animate-cheese-1 2s infinite;
+}
+
+.hamburger div:nth-child(7) {
+  z-index: 3;
+  animation: animate-cheese-2 2s infinite;
+}
+
+.hamburger div:nth-child(8) {
+  z-index: 2;
+  animation: animate-beef 2s infinite;
+}
+
+.hamburger div:nth-child(9) {
+  z-index: 1;
+  animation: animate-bottom-bun 2s infinite;
+}
+
+/* Top Bun*/
+
+.hamburger .top-bun {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  border: 5px solid #a6593b;
+  background-color: #e38f49;
+  border-top-left-radius: 70%;
+  border-top-right-radius: 70%;
+  border-bottom-left-radius: 45%;
+  border-bottom-right-radius: 45%;
+  transform: translate(0px, -80px);
+  animation: animate-top-bun 2s infinite;
+}
+
+.hamburger .top-bun:before,
+.hamburger .top-bun:after {
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 5px;
+  background-color: #f9cc92;
+  border-radius: 5px;
+}
+
+.hamburger .top-bun:before {
+  transform: translate(60px, 10px) rotate(60deg);
+  box-shadow: 15px -35px #f9cc92;
+}
+
+.hamburger .top-bun:after {
+  transform: translate(85px, 15px) rotate(-30deg);
+  box-shadow: 35px 15px #f9cc92;
+}
+
+/* Pickles */
+
+.hamburger .pickle,
+.hamburger .pickle:before {
+  position: absolute;
+  width: 80px;
+  height: 30px;
+  background-color: #608349;
+  border: 5px solid #3f592a;
+  border-radius: 50%;
+}
+
+.hamburger .pickle {
+  overflow: hidden;
+}
+
+.hamburger .pickle:before {
+  content: "";
+  transform: translate(-5px, -14px);
+}
+
+.hamburger .pickle:after {
+  position: absolute;
+  content: "";
+  width: 3px;
+  height: 40px;
+  background-color: #3f592a;
+  transform: translate(10px, -18px) rotate(40deg);
+  box-shadow: 15px -5px #3f592a;
+}
+
+/* Tomatoes */
+
+.hamburger .tomato,
+.hamburger .tomato:before {
+  position: absolute;
+  width: 100px;
+  height: 50px;
+  border: 5px solid #9f3928;
+  border-radius: 50%;
+}
+
+.hamburger .tomato {
+  background-color: #be4335;
+  overflow: hidden;
+}
+
+.hamburger .tomato:before {
+  content: "";
+  background-color: #d75f44;
+  transform: translate(-5px, -25px);
+}
+
+.hamburger .tomato div,
+.hamburger .tomato div:before {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  border-radius: 40%;
+}
+
+.hamburger .tomato div {
+  border-left: 41px solid #9f3928;
+  border-right: 41px solid #9f3928;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  transform: translate(9px, 9px);
+}
+
+.hamburger .tomato div:before {
+  content: "";
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-top: 13px solid #9f3928;
+  border-bottom: 18px solid #9f3928;
+  transform: translate(-25px, -15px);
+}
+
+.hamburger .tomato div:after {
+  position: absolute;
+  content: "";
+  width: 15px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #d75f44;
+  transform: translate(-8px, -7px);
+}
+
+/* Cheese */
+
+.hamburger .cheese {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+  background-color: #eebd42;
+  border: 5px solid #c0733a;
+}
+
+/* Beef */
+
+.hamburger .beef,
+.hamburger .beef:before {
+  position: absolute;
+  width: 155px;
+  background-color: #834b34;
+  border-radius: 50%;
+  border: 5px solid #6d3c27;
+}
+
+.hamburger .beef {
+  height: 85px;
+  overflow: hidden;
+}
+
+.hamburger .beef:before {
+  content: "";
+  height: 70px;
+  transform: translate(-5px, -10px);
+}
+
+/* Bottom Bun */
+
+.hamburger .bottom-bun,
+.hamburger .bottom-bun:before {
+  position: absolute;
+  /* width: 200px;
+  height: 70px; */
+  width: 150px;
+  height: 70px;
+  border-radius: 50%;
+  border: 5px solid #a6593b;
+}
+
+.hamburger .bottom-bun {
+  background-color: #e38f49;
+  overflow: hidden;
+}
+
+.hamburger .bottom-bun:before {
+  content: "";
+  background-color: #f3c68b;
+  transform: translate(-5px, -20px);
+}
+
+/* Animations */
+
+@keyframes animate-top-bun {
+  0% {
+    transform: scale(0) translate(5px, 0px);
+  }
+  53% {
+    transform: scale(0) translate(5px, 0px);
+  }
+  58% {
+    transform: scale(1.05) translate(5px, 0px);
+  }
+  59% {
+    transform: scale(1) translate(5px, 0px);
+  }
+  100% {
+    transform: scale(1) translate(5px, 0px);
+  }
+}
+
+@keyframes animate-pickle-2 {
+  0% {
+    transform: scale(0) translate(60px, 50px) rotate(15deg);
+  }
+  42% {
+    transform: scale(0) translate(60px, 50px) rotate(15deg);
+  }
+  47% {
+    transform: scale(1.05) translate(60px, 50px) rotate(15deg);
+  }
+  48% {
+    transform: scale(1) translate(60px, 50px) rotate(15deg);
+  }
+  100% {
+    transform: scale(1) translate(60px, 50px) rotate(15deg);
+  }
+}
+
+@keyframes animate-pickle-1 {
+  0% {
+    transform: scale(0) translate(20px, 50px) rotate(-10deg);
+  }
+  36% {
+    transform: scale(0) translate(20px, 50px) rotate(-10deg);
+  }
+  41% {
+    transform: scale(1.05) translate(20px, 50px) rotate(-10deg);
+  }
+  42% {
+    transform: scale(1) translate(20px, 50px) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1) translate(20px, 50px) rotate(-10deg);
+  }
+}
+
+@keyframes animate-tomato-2 {
+  0% {
+    transform: scale(0) translate(10px, 50px) rotate(-10deg);
+  }
+  30% {
+    transform: scale(0) translate(10px, 50px) rotate(-10deg);
+  }
+  35% {
+    transform: scale(1.05) translate(10px, 50px) rotate(-10deg);
+  }
+  36% {
+    transform: scale(1) translate(10px, 50px) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1) translate(10px, 50px) rotate(-10deg);
+  }
+}
+
+@keyframes animate-tomato-1 {
+  0% {
+    transform: scale(0) translate(50px, 55px);
+  }
+  24% {
+    transform: scale(0) translate(50px, 55px);
+  }
+  29% {
+    transform: scale(1.05) translate(50px, 55px);
+  }
+  30% {
+    transform: scale(1) translate(50px, 55px);
+  }
+  100% {
+    transform: scale(1) translate(50px, 55px);
+  }
+}
+
+@keyframes animate-cheese-1 {
+  0% {
+    transform: scale(0) skewx(-20deg) translate(30px, 55px);
+  }
+  18% {
+    transform: scale(0) skewx(-20deg) translate(30px, 55px);
+  }
+  23% {
+    transform: scale(1.05) skewx(-20deg) translate(30px, 55px);
+  }
+  24% {
+    transform: scale(1) skewx(-20deg) translate(30px, 55px);
+  }
+  100% {
+    transform: scale(1) skewx(-20deg) translate(30px, 55px);
+  }
+}
+
+@keyframes animate-cheese-2 {
+  0% {
+    transform: scale(0) skewx(20deg) translate(40px, 65px) rotate(-10deg);
+  }
+  12% {
+    transform: scale(0) skewx(20deg) translate(40px, 65px) rotate(-10deg);
+  }
+  17% {
+    transform: scale(1.05) skewx(20deg) translate(40px, 65px) rotate(-10deg);
+  }
+  18% {
+    transform: scale(1) skewx(20deg) translate(40px, 65px) rotate(-10deg);
+  }
+  100% {
+    transform: scale(1) skewx(20deg) translate(40px, 65px) rotate(-10deg);
+  }
+}
+
+@keyframes animate-beef {
+  0% {
+    transform: scale(0) translate(0px, 55px);
+  }
+  6% {
+    transform: scale(0) translate(0px, 55px);
+  }
+  11% {
+    transform: scale(1.05) translate(0px, 55px);
+  }
+  12% {
+    transform: scale(1) translate(0px, 55px);
+  }
+  100% {
+    transform: scale(1) translate(0px, 55px);
+  }
+}
+
+@keyframes animate-bottom-bun {
+  0% {
+    transform: scale(0) translate(5px, 85px);
+  }
+  5% {
+    transform: scale(1.05) translate(5px, 85px);
+  }
+  6% {
+    transform: scale(1) translate(5px, 85px);
+  }
+  100% {
+    transform: scale(1) translate(5px, 85px);
+  }
+}
+
+/* no page found css */
+.fundo {
+  animation: scales 3s alternate infinite;
+  transform-origin: center;
+}
+.pao-baixo {
+  animation: rotatepao 14s cubic-bezier(0.1, 0.49, 0.41, 0.97) infinite;
+  transform-origin: center;
+}
+.pao-cima {
+  animation: rotatepao 7s 1s cubic-bezier(0.1, 0.49, 0.41, 0.97) infinite;
+  transform-origin: center;
+}
+.olhos {
+  animation: olhos 2s alternate infinite;
+  transform-origin: center;
+}
+
+.left-sparks {
+  animation: left-sparks 4s alternate infinite;
+  transform-origin: 150px 156px;
+}
+
+.right-sparks {
+  animation: left-sparks 4s alternate infinite;
+  transform-origin: 310px 150px;
+}
+
+.olhos {
+  animation: olhos 2s alternate infinite;
+  transform-origin: center;
+}
+@keyframes scales {
+  from {
+    transform: scale(0.98);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes rotatepao {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%,
+  60% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes olhos {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(30deg);
+  }
+}
+
+@keyframes left-sparks {
+  0% {
+    opacity: 0;
+  }
+}
+
+.main {
+  min-height: 600px;
+  margin: 0px auto;
+  width: auto;
+  max-width: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.path {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: dash 4s alternate infinite;
+}
+
+@keyframes dash {
+  0%,
+  30% {
+    fill: 4B4B62;
+    stroke-dashoffset: 0;
+  }
+  80%,
+  100% {
+    fill: transparent;
+    stroke-dashoffset: -200;
+  }
+}
