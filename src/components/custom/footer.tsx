@@ -121,14 +121,6 @@ const Footer = () => {
               <Phone className="h-5 w-5 " />
               <span className="border-none">(+977) 9812345678</span>
             </li>
-            {/* <li className=" flex  gap-2 p-2 items-center justify-start">
-              <Mail className="h-5 w-5" />
-              foodorder@gmail.com
-            </li> */}
-            {/* <li className="  flex  gap-2 p-2 items-center justify-start">
-              <Phone className="h-5 w-5" />
-              (+977) 9812345678
-            </li> */}
           </ul>
         </div>
       </div>
