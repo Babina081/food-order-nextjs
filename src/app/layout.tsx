@@ -26,7 +26,7 @@ export default function RootLayout({
         )}
       >
         <Header></Header>
-        <main>{children}</main>
+        <main className="relative overflow-x-hidden ">{children}</main>
         <Footer></Footer>
       </body>
     </html>

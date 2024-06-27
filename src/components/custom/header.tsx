@@ -62,50 +62,51 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="bg-white fixed z-10 w-full mx-auto   ">
-      <nav className="container py-5 flex items-center  justify-between ">
-        <div className="flex items-center space-x-4 cursor-pointer">
+    <header className="bg-white fixed z-10 w-full ">
+      <nav className="container   py-5 flex items-center  justify-between  ">
+        <Link href={"/"} className="flex items-center space-x-4 cursor-pointer">
           <Image
             src="food-logo.svg"
             alt="logo"
             height={90}
             width={130}
-            className="bg-transparent"
+            className="bg-transparent w-20 h-10  "
           ></Image>
-        </div>
+        </Link>
         <div className="menu-btn flex lg:hidden  gap-5 ">
           <span className="bar"></span>
           <span className="bar"></span>
           <span className="bar"></span>
         </div>
         <div className="hidden md:hidden lg:flex items-center gap-8 ">
-          {menuItems.map((item, i) => {
-            return (
-              <ul className="flex items-center font-medium  space-x-4" key={i}>
-                <li>
+          <ul className="flex items-center font-medium  space-x-4">
+            {menuItems.map((item, i) => {
+              return (
+                <li key={i}>
                   <Link className="hover:text-primary" href={item.url}>
                     {item.name}
                   </Link>
                 </li>
-              </ul>
-            );
-          })}
+              );
+            })}
+          </ul>
 
-          <Select>
-            <SelectTrigger className="w-[180px] focus:ring-0">
-              <SelectValue placeholder="Select Restaurant" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="cheesy-delight">Cheesy Delight</SelectItem>
-              <SelectItem value="pizza-hut">Pizza Hut</SelectItem>
-              <SelectItem value="kids-corner">Kids Corner</SelectItem>
-            </SelectContent>
-          </Select>
-
-          <Button size={"sm"}>Sign In</Button>
-          <Button size={"sm"} className="inline-flex">
-            Sign Up
-          </Button>
+          <div className="gap-4 flex">
+            <Select>
+              <SelectTrigger className="w-[180px] focus:ring-0">
+                <SelectValue placeholder="Select Restaurant" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="cheesy-delight">Cheesy Delight</SelectItem>
+                <SelectItem value="pizza-hut">Pizza Hut</SelectItem>
+                <SelectItem value="kids-corner">Kids Corner</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button size={"sm"}>Sign In</Button>
+            <Button size={"sm"} className="inline-flex">
+              Sign Up
+            </Button>
+          </div>
           <div className="relative">
             <Link href="/cart">
               <ShoppingBasket className="hover:text-primary" />
@@ -116,7 +117,7 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="nav-items-toogle flex lg:hidden absolute top-24 left-0 border-l-2 border-b-2 border-primary rounded-bl-2xl justify-center items-center h-auto w-full z-10 bg-[#ffefba]">
+      <div className="nav-items-toogle flex lg:hidden absolute top-20 left-0 border-l-2 border-b-2 border-primary rounded-bl-2xl justify-center items-center h-auto w-full z-10 bg-[#ffefba]">
         <ul className="p-2 w-[20%] flex flex-col   gap-2 ml-10">
           {menuItems.map((item, i) => {
             return (
@@ -140,34 +141,6 @@ const Header = () => {
             );
           })}
         </ul>
-        {/* {menuItems.map((item, i) => {
-          return (
-            <ul
-              className="flex items-center font-medium  justify-center mx-auto gap-10 "
-              key={i}
-            >
-              {" "}
-              <li className="p-2 ">
-                <Link
-                  className="hover:text-primary text-lg font-bold flex  items-center  justify-center bg-red-400"
-                  href={item.url}
-                >
-                  <div className="flex justify-start ">
-                    {item.icon === "AlignHorizontalJustifyEnd" && (
-                      <AlignHorizontalJustifyEnd />
-                    )}
-                    {item.icon === "Info" && <Info />}
-                    {item.icon === "Contact" && <Contact />}
-                    {item.icon === "ScrollText" && <ScrollText />}
-                    {item.icon === "HandPlatter" && <HandPlatter />}
-                  </div>
-
-                  <span className="ml-4">{item.name}</span>
-                </Link>
-              </li>{" "}
-            </ul>
-          );
-        })} */}
       </div>
     </header>
   );
