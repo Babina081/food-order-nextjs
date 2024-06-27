@@ -105,22 +105,30 @@ const Footer = () => {
           </h1>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3515.681518425699!2d83.98369517427567!3d28.21698720283188!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3995944d76693d11%3A0xf1f006d89be13640!2sNew%20Rd%2C%20Pokhara%2033700!5e0!3m2!1sen!2snp!4v1719243319513!5m2!1sen!2snp"
-            className="w-full  mt-4  rounded-xl object-center object-cover border-1 border-white"
+            className="w-full  mt-4  rounded-xl object-center object-cover border-1 border-white overflow-hidden"
             loading="lazy"
           ></iframe>
           <ul className=" flex flex-col font-medium gap-2 pt-4  mx-auto ">
             <li className=" flex  gap-2 p-2 items-center justify-start">
               <MapPin className="h-5 w-5 transform  animateMapIcon" />
-              <>NewRoad, Pokhara</>
+              <span>NewRoad, Pokhara</span>
             </li>
             <li className=" flex  gap-2 p-2 items-center justify-start">
+              <Mail className="h-5 w-5 " />
+              <span className="border-none">foodorder@gmail.com</span>
+            </li>
+            <li className=" flex  gap-2 p-2 items-center justify-start">
+              <Phone className="h-5 w-5 " />
+              <span className="border-none">(+977) 9812345678</span>
+            </li>
+            {/* <li className=" flex  gap-2 p-2 items-center justify-start">
               <Mail className="h-5 w-5" />
-              <>foodorder@gmail.com</>
-            </li>
-            <li className="  flex  gap-2 p-2 items-center justify-start">
+              foodorder@gmail.com
+            </li> */}
+            {/* <li className="  flex  gap-2 p-2 items-center justify-start">
               <Phone className="h-5 w-5" />
-              <>(+977) 9812345678</>
-            </li>
+              (+977) 9812345678
+            </li> */}
           </ul>
         </div>
       </div>
