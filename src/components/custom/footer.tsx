@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import React from "react";
 import { Button } from "../ui/button";
+import { contactInfo } from "@/data/contact_info";
 
 const Footer = () => {
   return (
@@ -109,18 +110,23 @@ const Footer = () => {
             loading="lazy"
           ></iframe>
           <ul className=" flex flex-col font-medium gap-2 pt-4  mx-auto ">
-            <li className=" flex  gap-2 p-2 items-center justify-start">
-              <MapPin className="h-5 w-5 transform  animateMapIcon" />
-              <span>NewRoad, Pokhara</span>
-            </li>
-            <li className=" flex  gap-2 p-2 items-center justify-start">
-              <Mail className="h-5 w-5 " />
-              <span className="border-none">foodorder@gmail.com</span>
-            </li>
-            <li className=" flex  gap-2 p-2 items-center justify-start">
-              <Phone className="h-5 w-5 " />
-              <span className="border-none">(+977) 9812345678</span>
-            </li>
+            {contactInfo.map((info, id) => (
+              <li
+                className=" flex  gap-2 p-2 items-center justify-start"
+                key={id}
+              >
+                {info.icon === "MapPin" && (
+                  <MapPin className="h-5 w-5 transform  animateMapIcon" />
+                )}{" "}
+                {info.icon === "Mail" && (
+                  <Mail className="h-5 w-5 transform  animateMapIcon" />
+                )}{" "}
+                {info.icon === "Phone" && (
+                  <Phone className="h-5 w-5 transform  animateMapIcon" />
+                )}
+                <span>{info.content}</span>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
