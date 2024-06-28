@@ -29,6 +29,7 @@ export type Product = {
   description: string;
   image: string;
   price: number;
+  category: string;
 };
 
 type PropTypes = { product: Product };
@@ -168,7 +169,7 @@ const ProductCard = ({ product }: PropTypes) => {
                 <div className="flex items-center mt-12 justify-between ">
                   <span className="font-bold">Rs 1005</span>
                   <Button>
-                    <ShoppingCart size={20}/>
+                    <ShoppingCart size={20} />
                     <span className=" ml-2">Add to Cart</span>
                   </Button>
                 </div>
