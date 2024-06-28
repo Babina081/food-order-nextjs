@@ -2,7 +2,7 @@
 
 export default function Error() {
   return (
-    <section className=" container w-screen p-20  flex flex-col items-center justify-center  h-full">
+    <section className=" container w-screen p-20  flex flex-col items-center justify-center  h-full bg-transparent">
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -20,7 +20,7 @@ export default function Error() {
         </defs>
         <g fill="none" fill-rule="evenodd">
           <path
-            fill="#FFF"
+            fill="transparent"
             d="M0 0H1366V800H0z"
             transform="translate(-448 -157)"
           />
