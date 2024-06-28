@@ -5,29 +5,33 @@ import { products } from "@/data/food_list";
 const MenuSection = () => {
   return (
     <section className="container">
-      <div className="  py-12">
-        <Tabs defaultValue="pizza" className="">
+      <div className="  pb-12">
+        <Tabs defaultValue="food" className="">
           <TabsList>
-            <TabsTrigger value="pizza" className="text-lg">
-              Pizza
+            <TabsTrigger value="food" className="text-lg">
+              Food
             </TabsTrigger>
             <TabsTrigger value="beverages" className="text-lg">
               Beverages
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="pizza">
+          <TabsContent value="food">
             <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product}></ProductCard>
-              ))}
+              {products
+                .filter((product) => product.category === "food")
+                .map((product) => (
+                  <ProductCard key={product.id} product={product}></ProductCard>
+                ))}
             </div>
           </TabsContent>
           <TabsContent value="beverages">
             {" "}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-              {products.map((product) => (
-                <ProductCard key={product.id} product={product}></ProductCard>
-              ))}
+              {products
+                .filter((product) => product.category === "beverage")
+                .map((product) => (
+                  <ProductCard key={product.id} product={product}></ProductCard>
+                ))}
             </div>
           </TabsContent>
         </Tabs>
