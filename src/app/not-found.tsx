@@ -20,7 +20,7 @@ const NotFound = () => {
         </defs>
         <g fill="none" fill-rule="evenodd">
           <path
-            fill="#FFF"
+            fill="transparent"
             d="M0 0H1366V800H0z"
             transform="translate(-448 -157)"
           />
