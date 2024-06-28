@@ -73,20 +73,20 @@ const Footer = () => {
           </h1>
           <ul className="grid grid-cols-2 items-center text-center md:flex md:flex-col font-medium  pt-4 cursor-pointer gap-4">
             <li className="hover:border-fade transition hover:duration-300 ease-in-out   hover:-translate-y-2 hover:scale-125   hover:rounded-xl  ">
-              <Link href="#">FAQs</Link>
+              <Link href="/faq">FAQs</Link>
             </li>
 
             <li className="transition hover:duration-300 ease-in-out    hover:-translate-y-2 hover:scale-125   hover:rounded-xl   ">
-              <Link href="#">About Us</Link>
+              <Link href="/about">About Us</Link>
             </li>
             <li className="transition hover:duration-300 ease-in-out    hover:-translate-y-2 hover:scale-125   hover:rounded-xl  ">
-              <Link href="#">Contact Us</Link>
+              <Link href="/contact">Contact Us</Link>
             </li>
             <li className="transition hover:duration-300 ease-in-out    hover:-translate-y-2 hover:scale-125   hover:rounded-xl  ">
               <Link href="#">Privacy Policy</Link>
             </li>
             <li className="transition hover:duration-300 ease-in-out    hover:-translate-y-2 hover:scale-125   hover:rounded-xl  ">
-              <Link href="#">Terms And Conditions</Link>
+              <Link href="/terms">Terms And Conditions</Link>
             </li>
             <li className="transition hover:duration-300 ease-in-out    hover:-translate-y-2 hover:scale-125   hover:rounded-xl  ">
               <Link href="#">Cancellation Policy</Link>
