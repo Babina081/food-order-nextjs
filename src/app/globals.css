@@ -165,8 +165,8 @@
 
 .ham-h1 {
   text-align: center;
-  /* font-family: "Pacifico", cursive; */
-  font-family: "Pacifico";
+  font-family: "Pacifico", cursive;
+  /* font-family: "Pacifico"; */
   color: white;
   text-shadow: -1px -1px 0 orangered, 1px -1px 0 orangered, -1px 1px 0 orangered,
     1px 1px 0 orangered;
@@ -688,4 +688,15 @@
     transform: rotate(0deg);
     scale: 1;
   }
+}
+
+/* terms and condition */
+.terms-h2 {
+  font-size: medium;
+  font-weight: bold;
+}
+
+.terms-p {
+  font-size: small;
+  text-align: justify;
 }
