@@ -6,7 +6,7 @@ const ContactPage = () => {
   return (
     <section className="container flex flex-col gap-4 w-auto py-10 h-auto">
       {" "}
-      <h1 className="  font-bold text-3xl text-center border-b-2 border-primary w-auto mx-auto mb-8 text-primary">
+      <h1 className="  font-bold text-3xl text-center border-b-4 border-primary w-auto mx-auto mb-8 text-primary">
         Contact Us
       </h1>
       <div className="flex flex-col  gap-8">
