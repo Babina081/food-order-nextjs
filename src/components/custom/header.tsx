@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, {  useState } from "react";
+import React, { useState } from "react";
 import {
   Select,
   SelectContent,
@@ -14,12 +14,11 @@ import {
   Contact,
   HandPlatter,
   Info,
-  InfoIcon,
   ScrollText,
   ShoppingBasket,
-  Soup,
 } from "lucide-react";
 import { Button } from "../ui/button";
+import { usePathname, useRouter } from "next/navigation";
 
 interface MenuItem {
   name: string;
@@ -41,6 +40,8 @@ const menuItems: MenuItem[] = [
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
+  const currentPathname = usePathname();
 
   const closeMenu = () => {
     setIsMenuOpen(false); // Function to close menu
@@ -71,11 +72,21 @@ const Header = () => {
           <span className="bar"></span>
         </div>
         <div className="hidden md:hidden lg:flex items-center gap-8 ">
-          <ul className="flex items-center font-medium  space-x-4">
+          <ul className="flex items-center font-medium  space-x-4  ">
             {menuItems.map((item, i) => {
+              const isActive = currentPathname === item.url;
               return (
                 <li key={i} className={`nav-item-${i}`}>
-                  <Link className="hover:text-primary" href={item.url} passHref>
+                  <Link
+                    className={`hover:text-primary  ${
+                      isActive
+                        ? "text-primary border-b-2 border-b-primary"
+                        : "border-b-transparent"
+                    } transition-all translate-x-2  10s ease-in-out
+                     `}
+                    href={item.url}
+                    passHref
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -94,8 +105,8 @@ const Header = () => {
                 <SelectItem value="kids-corner">Kids Corner</SelectItem>
               </SelectContent>
             </Select>
-            <Button size={"sm"}>Sign In</Button>
-            <Button size={"sm"} className="inline-flex">
+            <Button size={"sm"} onClick={() => router.push("/login")}>Sign In</Button>
+            <Button size={"sm"} onClick={() => router.push("/signup")} className="inline-flex">
               Sign Up
             </Button>
           </div>
