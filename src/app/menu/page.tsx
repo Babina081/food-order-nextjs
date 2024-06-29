@@ -1,4 +1,4 @@
-import { Restaurant } from "@/components/custom/restaurant";
+import { Restaurant } from "@/components/custom/menu/restaurant/restaurant";
 import React from "react";
 
 const MenuPage = () => {
