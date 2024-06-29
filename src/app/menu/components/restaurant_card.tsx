@@ -3,7 +3,8 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Restaurant } from "@/data/restaurants_list";
 import { Bike, ShoppingBagIcon, Star } from "lucide-react";
 import Image from "next/image";
-import FavButton from "./fav_button";
+import MenuButton from "@/components/custom/menu/restaurant/menu_button";
+import Link from "next/link";
 
 type RestaurantPropsTypes = { resInfo: Restaurant };
 
@@ -49,18 +50,20 @@ const RestaurantCard = ({ resInfo }: RestaurantPropsTypes) => {
           })}
         </ul>
         <Button className="bg-white border-2 border-primary text-primary text-sm font-extrabold hover:border-none hover:text-white relative">
-          Menu
-          <span className="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75 "></span>
-            <span className=" relative inline-flex rounded-full h-3 w-3 bg-primary "></span>
-          </span>
+          <Link href={"/menu/" + resInfo.id}>
+            Menu
+            <span className="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75 "></span>
+              <span className=" relative inline-flex rounded-full h-3 w-3 bg-primary "></span>
+            </span>
+          </Link>
         </Button>
-
-        <Button className="bg-gray-100 rounded-full  ">
+        {/* <MenuButton onClick={() => console.log(99)}></MenuButton> */}
+        <Button className="bg-gray-2100 rounded-full  hover:bg-gray-200">
           {resInfo.isFavorite === false ? (
-            <Star className="text-black cursor-pointer hover:stroke-white   hover:-scale-x-100 transition-all duration-1000 ease-in-out hover:animate-spin" />
+            <Star className="text-black cursor-pointer    hover:-scale-x-100 transition-all duration-1000 ease-in-out hover:animate-spin hover:stroke-black" />
           ) : (
-            <Star className="text-primary  stroke-primary  fill-primary hover:stroke-white cursor-pointer hover:-scale-x-100 transition-all duration-1000  ease-in-out hover:animate-spin " />
+            <Star className="text-primary  stroke-primary  fill-primary  cursor-pointer hover:-scale-x-100 transition-all duration-1000  ease-in-out hover:animate-spin hover:stroke-primary" />
           )}
         </Button>
         {/* <FavButton isFavorite={resInfo.isFavorite}></FavButton> */}
