@@ -3,7 +3,6 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Restaurant } from "@/data/restaurants_list";
 import { Bike, ShoppingBagIcon, Star } from "lucide-react";
 import Image from "next/image";
-import MenuButton from "@/components/custom/menu/restaurant/menu_button";
 import Link from "next/link";
 
 type RestaurantPropsTypes = { resInfo: Restaurant };
@@ -50,7 +49,7 @@ const RestaurantCard = ({ resInfo }: RestaurantPropsTypes) => {
           })}
         </ul>
         <Button className="bg-white border-2 border-primary text-primary text-sm font-extrabold hover:border-none hover:text-white relative">
-          <Link href={"/menu/" + resInfo.id}>
+          <Link href={"/menu/restaurant/" + resInfo.id}>
             Menu
             <span className="flex absolute h-3 w-3 top-0 right-0 -mt-1 -mr-1">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75 "></span>
