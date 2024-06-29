@@ -30,6 +30,7 @@ export type Product = {
   image: string;
   price: number;
   category: string;
+  restaurantId: number;
 };
 
 type PropTypes = { product: Product };
