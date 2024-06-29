@@ -116,13 +116,13 @@ const Footer = () => {
                 key={id}
               >
                 {info.icon === "MapPin" && (
-                  <MapPin className="h-5 w-5 transform  animateMapIcon" />
+                  <MapPin className="h-5 w-5    animateMapIcon" />
                 )}{" "}
                 {info.icon === "Mail" && (
-                  <Mail className="h-5 w-5 transform  animateMapIcon" />
+                  <Mail className="h-5 w-5    animateMapIcon" />
                 )}{" "}
                 {info.icon === "Phone" && (
-                  <Phone className="h-5 w-5 transform  animateMapIcon" />
+                  <Phone className="h-5 w-5    animateMapIcon" />
                 )}
                 <span>{info.content}</span>
               </li>

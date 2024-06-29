@@ -59,10 +59,10 @@
 }
 
 .animateMapIcon {
-  animation: spin 2.5s linear infinite;
+  animation: icon-spin 2.5s linear infinite;
 }
 
-@keyframes spin {
+@keyframes icon-spin {
   from {
     transform: rotateY(0deg);
   }
