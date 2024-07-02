@@ -22,14 +22,7 @@ const CartPage = () => {
       <Table className="border-orange-300 border ">
         <TableHeader className="bg-orange-300 font-bold text-lg ">
           <TableRow className="">
-            <TableHead className="w-1/5 text-left">
-              <Image
-                src="/food.jfif"
-                alt="food image"
-                width={100}
-                height={100}
-              />
-            </TableHead>
+            <TableHead className="w-1/5 text-left">Item-Image</TableHead>
 
             <TableHead className="w-2/5 text-left">Items</TableHead>
 
@@ -39,7 +32,16 @@ const CartPage = () => {
         </TableHeader>
         <TableBody>
           <TableRow>
-            <TableCell className="font-medium">Image</TableCell>
+            <TableCell className="font-medium">
+              {" "}
+              <Image
+                src="/food.jfif"
+                alt="food image"
+                width={50}
+                height={50}
+                className="border border-primary"
+              />
+            </TableCell>
             <TableCell className="font-medium">INV001</TableCell>
 
             <TableCell className="flex justify-between items-center">
@@ -56,7 +58,7 @@ const CartPage = () => {
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={2}>Total</TableCell>
+            <TableCell colSpan={3}>Total</TableCell>
             <TableCell className="text-right">$2,500.00</TableCell>
           </TableRow>
         </TableFooter>
