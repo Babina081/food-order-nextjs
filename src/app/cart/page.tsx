@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/table";
 import { Minus, MinusCircle, Plus, PlusCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 const CartPage = () => {
   return (
@@ -19,9 +20,18 @@ const CartPage = () => {
         Your Cart List
       </h1>
       <Table className="border-orange-300 border ">
-        <TableHeader className="bg-orange-300 font-bold text-lg  ">
+        <TableHeader className="bg-orange-300 font-bold text-lg ">
           <TableRow className="">
-            <TableHead className="w-3/5 text-left">Items</TableHead>
+            <TableHead className="w-1/5 text-left">
+              <Image
+                src="/food.jfif"
+                alt="food image"
+                width={100}
+                height={100}
+              />
+            </TableHead>
+
+            <TableHead className="w-2/5 text-left">Items</TableHead>
 
             <TableHead className="w-1/5 text-center">Quantity</TableHead>
             <TableHead className="text-right w-1/5">Amount</TableHead>
@@ -29,6 +39,7 @@ const CartPage = () => {
         </TableHeader>
         <TableBody>
           <TableRow>
+            <TableCell className="font-medium">Image</TableCell>
             <TableCell className="font-medium">INV001</TableCell>
 
             <TableCell className="flex justify-between items-center">
