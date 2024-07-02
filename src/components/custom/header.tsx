@@ -19,6 +19,24 @@ import {
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormMessage,
+} from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
+
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { Checkbox } from "../ui/checkbox";
 
 interface MenuItem {
   name: string;
@@ -38,14 +56,51 @@ const menuItems: MenuItem[] = [
   { name: "Orders", url: "/orders", icon: "HandPlatter" },
 ];
 
+const formSchema = z.object({
+  username: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  fullname: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  email: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  password: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+  confirmPassword: z.string().min(2, {
+    message: "Username must be at least 2 characters.",
+  }),
+});
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const router = useRouter();
   const currentPathname = usePathname();
 
   const closeMenu = () => {
-    setIsMenuOpen(false); // Function to close menu
+    setIsMenuOpen(false);
   };
+
+  // 1. Define your form.
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      username: "",
+      fullname: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    },
+  });
+
+  // 2. Define a submit handler.
+  function onSubmit(values: z.infer<typeof formSchema>) {
+    // Do something with the form values.
+    // ✅ This will be type-safe and validated.
+    console.log(values);
+  }
 
   return (
     <header className="bg-white fixed z-10 w-full ">
@@ -94,7 +149,7 @@ const Header = () => {
             })}
           </ul>
 
-          <div className="gap-4 flex">
+          <div className="gap-4 flex justify-center items-center">
             <Select>
               <SelectTrigger className="w-[180px] focus:ring-0">
                 <SelectValue placeholder="Select Restaurant" />
@@ -105,10 +160,172 @@ const Header = () => {
                 <SelectItem value="kids-corner">Kids Corner</SelectItem>
               </SelectContent>
             </Select>
-            <Button size={"sm"} onClick={() => router.push("/login")}>Sign In</Button>
-            <Button size={"sm"} onClick={() => router.push("/signup")} className="inline-flex">
-              Sign Up
-            </Button>
+
+            {/* signin */}
+            <Dialog>
+              <DialogTrigger className="bg-primary text-white h-full rounded-lg py-1 px-3 text-lg font-semibold">
+                {" "}
+                Sign In{" "}
+              </DialogTrigger>
+              <DialogContent className="grid grid-cols-2 p-0 gap-0 min-h-screen max-w-3xl rounded-xl overflow-hidden ">
+                <div className=" hidden md:flex overflow-hidden relative">
+                  <Image
+                    src={"/auth-food-bg.jpg"}
+                    alt="auth-img"
+                    width={300}
+                    height={300}
+                    className="object-cover w-full h-screen overflow-hidden opacity-50"
+                  ></Image>
+                  <div className="flex flex-col justify-center items-center gap-8 absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]">
+                    {" "}
+                    <Image
+                      src={"/food-logo.svg"}
+                      alt="auth-img"
+                      width={300}
+                      height={300}
+                    ></Image>
+                  </div>
+                </div>
+                <div className="bg-white flex justify-center items-center ">
+                  {" "}
+                  <Form {...form}>
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-8 "
+                    >
+                      <h1 className="font-bold text-primary  text-3xl ">
+                        Sign In
+                      </h1>
+                      <FormField
+                        control={form.control}
+                        name="username"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input placeholder="Email" {...field} />
+                            </FormControl>{" "}
+                            <FormControl className="relative">
+                              <>
+                                <Input
+                                  type="password"
+                                  placeholder="Password"
+                                  {...field}
+                                  className="relative"
+                                  id="password"
+                                ></Input>
+                              </>
+                            </FormControl>{" "}
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <Button type="submit" className="w-full">
+                        Sign In
+                      </Button>
+                      <p className="text-sm">
+                        Dont have an account Yet!{" "}
+                        <span className="text-blue-400 hover:underline cursor-pointer ">
+                          Sign Up!
+                        </span>
+                      </p>
+                    </form>
+                  </Form>
+                </div>
+              </DialogContent>
+            </Dialog>
+            {/*signup  */}
+            <Dialog>
+              <DialogTrigger className="bg-primary text-white h-full rounded-lg py-1 px-3 text-lg font-semibold">
+                {" "}
+                Sign Up{" "}
+              </DialogTrigger>
+              <DialogContent className="grid grid-cols-2 p-0 gap-0 min-h-screen max-w-3xl rounded-xl overflow-hidden ">
+                <div className=" hidden md:flex overflow-hidden relative">
+                  <Image
+                    src={"/auth-food-bg.jpg"}
+                    alt="auth-img"
+                    width={300}
+                    height={300}
+                    className="object-cover w-full h-screen overflow-hidden opacity-50"
+                  ></Image>
+                  <div className="flex flex-col justify-center items-center gap-8 absolute top-[50%] left-[50%] transform -translate-x-[50%] -translate-y-[50%]">
+                    {" "}
+                    <Image
+                      src={"/food-logo.svg"}
+                      alt="auth-img"
+                      width={300}
+                      height={300}
+                    ></Image>
+                  </div>
+                </div>
+                <div className="bg-white flex justify-center items-center ">
+                  {" "}
+                  <Form {...form}>
+                    <form
+                      onSubmit={form.handleSubmit(onSubmit)}
+                      className="space-y-8 "
+                    >
+                      <h1 className="font-bold text-primary  text-3xl ">
+                        Sign Up
+                      </h1>
+                      <FormField
+                        control={form.control}
+                        name="username"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormControl>
+                              <Input placeholder="Full Name" {...field} />
+                            </FormControl>
+                            <FormControl>
+                              <Input placeholder="Username" {...field} />
+                            </FormControl>{" "}
+                            <FormControl>
+                              <Input placeholder="Email" {...field} />
+                            </FormControl>{" "}
+                            <FormControl className="relative">
+                              <>
+                                <Input
+                                  type="password"
+                                  placeholder="Password"
+                                  {...field}
+                                  className="relative"
+                                  id="password"
+                                ></Input>
+                              </>
+                            </FormControl>{" "}
+                            <FormControl>
+                              <Input
+                                placeholder="Confirm Password"
+                                {...field}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      <div className="flex items-center  space-x-2">
+                        <Checkbox id="terms" />
+                        <label
+                          htmlFor="terms"
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                          I accept terms and conditions
+                        </label>
+                      </div>
+                      <Button type="submit" className="w-full">
+                        Sign Up
+                      </Button>
+                      <p className="text-sm">
+                        Already have an account?{" "}
+                        <span className="text-blue-400 hover:underline cursor-pointer ">
+                          Sign In!
+                        </span>
+                      </p>{" "}
+                    </form>
+                  </Form>
+                </div>
+              </DialogContent>
+            </Dialog>
           </div>
           <div className="relative">
             <Link href="/cart" passHref>
@@ -150,6 +367,7 @@ const Header = () => {
           })}
         </ul>
       </div>
+      <div></div>
     </header>
   );
 };
