@@ -213,13 +213,13 @@ const RestaurantDetails = ({
         </Tabs>
       </>
       <div className="grid grid-cols-1 md:grid-cols-2  gap-8 py-4">
-        <div className="rounded-xl flex flex-col gap-4 p-2 flex-grow border-2 border-primary shadow-md shadow-white/30">
+        <div className="md:row-span-2 rounded-2xl flex flex-col gap-4 p-2 flex-grow border-2 border-primary shadow-md shadow-white/30">
           {menuLists.map((menu, id) => {
             return (
               <>
                 <Collapsible>
                   <CollapsibleTrigger className="flex justify-between items-center w-full p-4 bg-transparent">
-                    <h1 className="text-3xl font-bold cursor-pointer">
+                    <h1 className="text-lg md:text-xl font-bold cursor-pointer">
                       {menu.category}
                     </h1>
 
@@ -270,13 +270,15 @@ const RestaurantDetails = ({
             );
           })}
         </div>
-        <div className="bg-green-100 hidden md:flex flex-col   gap-8 justify-center flex-grow ">
+        <div className="md:row-span-1 bg-green-100  md:flex md:flex-col flex-row   gap-8 justify-center flex-grow ">
           <div className="w-full h-auto bg-primary p-2 text-center text-white">
             <h1 className="text-3xl font-bold ">Order Summary</h1>
           </div>
-          <div className="flex flex-col gap-2 w-full px-6 justify-center h-auto">
+          <div className="flex flex-col gap-2 w-full px-8 justify-center h-auto my-4">
             <Button className="w-full text-xl">Checkout</Button>
-            <span>Delivery Charge will be calculated on next step</span>
+            <span className="text-sm md:text-xl text-center ">
+              Delivery Charge will be calculated on next step
+            </span>
           </div>
         </div>
       </div>
