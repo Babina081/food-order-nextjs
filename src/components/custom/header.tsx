@@ -14,16 +14,13 @@ import {
   Contact,
   HandPlatter,
   Info,
+  LogOut,
   ScrollText,
   ShoppingBasket,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -31,6 +28,15 @@ import {
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
 import { Input } from "@/components/ui/input";
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -126,6 +132,7 @@ const Header = () => {
           <span className="bar"></span>
           <span className="bar"></span>
         </div>
+
         <div className="hidden md:hidden lg:flex items-center gap-8 ">
           <ul className="flex items-center font-medium  space-x-4  ">
             {menuItems.map((item, i) => {
@@ -365,9 +372,13 @@ const Header = () => {
               </li>
             );
           })}
+
+          <div className="flex gap-2 justify-center items-center">
+            <Button className="w-full">Login</Button>
+            <Button className="w-full">Signup</Button>
+          </div>
         </ul>
       </div>
-      <div></div>
     </header>
   );
 };
