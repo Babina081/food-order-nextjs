@@ -8,27 +8,37 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Minus, MinusCircle, Plus, PlusCircle } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const CartPage = () => {
   return (
     <section className="container flex flex-col gap-4 w-full py-10 h-full">
-         <h1 className=" font-bold text-3xl text-center border-b-2 border-primary  w-auto mx-auto mb-8 text-primary ">
+      <h1 className=" font-bold text-3xl text-center border-b-2 border-primary  w-auto mx-auto mb-8 text-primary ">
         Your Cart List
       </h1>
-      <Table>
-        <TableHeader>
+      <Table className="border-orange-300 border ">
+        <TableHeader className="bg-orange-300 font-bold text-lg ">
           <TableRow>
-            <TableHead className="w-[100px]">Invoice</TableHead>
-            <TableHead>Status</TableHead>
-            <TableHead>Method</TableHead>
-            <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="w-3/5">Items</TableHead>
+
+            <TableHead className="w-1/5">Quantity</TableHead>
+            <TableHead className="text-right w-1/5">Amount</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           <TableRow>
             <TableCell className="font-medium">INV001</TableCell>
-            <TableCell>Paid</TableCell>
-            <TableCell>Credit Card</TableCell>
+
+            <TableCell className="flex justify-between items-center">
+              <Button className="bg-green-500 hover:bg-green-300 hover:opacity-55">
+                <Plus />
+              </Button>
+              <div>1</div>
+              <Button variant={"destructive"} className="hover:opacity-55">
+                <Minus />
+              </Button>
+            </TableCell>
             <TableCell className="text-right">$250.00</TableCell>
           </TableRow>
         </TableBody>
