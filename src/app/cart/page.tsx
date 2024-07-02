@@ -4,6 +4,7 @@ import {
   TableBody,
   TableCaption,
   TableCell,
+  TableFooter,
   TableHead,
   TableHeader,
   TableRow,
@@ -18,11 +19,11 @@ const CartPage = () => {
         Your Cart List
       </h1>
       <Table className="border-orange-300 border ">
-        <TableHeader className="bg-orange-300 font-bold text-lg ">
-          <TableRow>
-            <TableHead className="w-3/5">Items</TableHead>
+        <TableHeader className="bg-orange-300 font-bold text-lg  ">
+          <TableRow className="">
+            <TableHead className="w-3/5 text-left">Items</TableHead>
 
-            <TableHead className="w-1/5">Quantity</TableHead>
+            <TableHead className="w-1/5 text-center">Quantity</TableHead>
             <TableHead className="text-right w-1/5">Amount</TableHead>
           </TableRow>
         </TableHeader>
@@ -42,6 +43,12 @@ const CartPage = () => {
             <TableCell className="text-right">$250.00</TableCell>
           </TableRow>
         </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TableCell colSpan={3}>Total</TableCell>
+            <TableCell className="text-right">$2,500.00</TableCell>
+          </TableRow>
+        </TableFooter>
       </Table>
     </section>
   );
