@@ -53,7 +53,7 @@ interface MenuItem {
 const menuItems: MenuItem[] = [
   {
     name: "Home",
-    url: "/",
+    url: "/home",
     icon: "AlignHorizontalJustifyEnd",
   },
   { name: "About", url: "/about", icon: "Info" },
@@ -112,7 +112,7 @@ const Header = () => {
     <header className="bg-white fixed z-10 w-full ">
       <nav className="container   py-5 flex items-center  justify-between  ">
         <Link
-          href={"/"}
+          href={"/home"}
           className="flex items-center space-x-4 cursor-pointer"
           passHref
         >

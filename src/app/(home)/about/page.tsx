@@ -21,7 +21,7 @@ const AboutPage = () => {
         and transport them to customers throughout urban areas. Savor the finest
         dining experience effortlessly by visiting{" "}
         <Link
-          href="/"
+          href="/home"
           className="font-bold italic underline cursor-pointer hover:text-primary"
         >
           www.food-order.com.np
@@ -43,7 +43,7 @@ const AboutPage = () => {
         satisfy your appetite. Place your order now by calling 9812345678,
         messaging us on Viber/WhatsApp, or visiting our website at
         <Link
-          href="/"
+          href="/home"
           className="font-bold italic underline cursor-pointer hover:text-primary"
         >
           www.food-order.com.np
