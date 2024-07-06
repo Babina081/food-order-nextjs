@@ -25,11 +25,7 @@ export default function RootLayout({
           manrope.variable
         )}
       >
-        <Header></Header>
-        <div className="relative overflow-x-hidden top-20">
-          <>{children}</>
-          <Footer></Footer>
-        </div>
+        {children}
       </body>
     </html>
   );
