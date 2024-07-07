@@ -165,7 +165,7 @@ const RestaurantDetails = ({
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="m15 4l2 2l-6 6l6 6l-2 2l-8-8z"
                       />
                     </svg>
@@ -174,7 +174,7 @@ const RestaurantDetails = ({
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
                         fill="currentColor"
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         d="m9.005 4l8 8l-8 8L7 18l6.005-6L7 6z"
                       />
                     </svg>
@@ -198,9 +198,11 @@ const RestaurantDetails = ({
                 <TabsTrigger
                   value={menu.category}
                   key={id}
+
                   className="border-1 border-black 
                   border-transparent hover:text-primary transition-all duration-300 ease-in-out text-xl h-full"
                 >
+                  {id}
                   {menu.category}
                 </TabsTrigger>
               ))}
