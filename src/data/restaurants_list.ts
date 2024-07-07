@@ -681,7 +681,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 110,
   },
   {
-    id: 6,
+    id: 7,
     name: "Pokhara Java",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -791,7 +791,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 42,
   },
   {
-    id: 7,
+    id: 8,
     name: "Lakeside Kitchen & Bar",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -901,7 +901,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 150,
   },
   {
-    id: 8,
+    id: 9,
     name: "Caffe Concerto",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -1011,7 +1011,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 28,
   },
   {
-    id: 9,
+    id: 10,
     name: "Yangling Tibetan Restaurant",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -1121,7 +1121,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 63,
   },
   {
-    id: 10,
+    id: 11,
     name: "Black & White Cafe",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -1231,7 +1231,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 37,
   },
   {
-    id: 11,
+    id: 12,
     name: "La Bella Nepali Restaurant",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -1341,7 +1341,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 72,
   },
   {
-    id: 12,
+    id: 13,
     name: "Momo Hut",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
@@ -1451,7 +1451,7 @@ export const restaurantsInfo: Restaurant[] = [
     reviewsCount: 14,
   },
   {
-    id: 13,
+    id: 14,
     name: "Maya Devi Restaurant",
     location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
