@@ -8,7 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Minus,Plus } from "lucide-react";
+import { Minus, Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
@@ -34,7 +34,7 @@ const CartPage = () => {
             <TableCell className="font-medium">
               {" "}
               <Image
-                src="/food.jfif"
+                src="/food1.png"
                 alt="food image"
                 width={50}
                 height={50}
