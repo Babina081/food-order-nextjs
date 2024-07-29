@@ -63,7 +63,7 @@ const ProgressCircle = () => {
             stroke="currentColor"
             strokeWidth="2"
             strokeLinecap="round"
-            stroke-linejoin="round"
+            strokeLinejoin="round"
           >
             <path d="M12 19V5M5 12l7-7 7 7" />
           </svg>
