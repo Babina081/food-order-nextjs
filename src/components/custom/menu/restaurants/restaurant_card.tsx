@@ -1,3 +1,4 @@
+import { RestaurantInfoType } from "@/app/(home)/menu/page";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Restaurant } from "@/data/restaurants_list";
@@ -5,7 +6,7 @@ import { Bike, ShoppingBagIcon, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-type RestaurantPropsTypes = { resInfo: Restaurant };
+type RestaurantPropsTypes = { resInfo: RestaurantInfoType };
 
 const RestaurantCard = ({ resInfo }: RestaurantPropsTypes) => {
   return (
@@ -24,7 +25,7 @@ const RestaurantCard = ({ resInfo }: RestaurantPropsTypes) => {
         <CardContent className="p-0">
           <Image
             alt={resInfo.name}
-            src={"/restaurant.jfif"}
+            src="/restaurant.png"
             width={150}
             height={150}
             className="h-full w-full object-cover "
@@ -32,7 +33,7 @@ const RestaurantCard = ({ resInfo }: RestaurantPropsTypes) => {
         </CardContent>
       </>
       <CardContent className="h-16  flex justify-between items-center p-2 ">
-        <ul className="flex flex-col   gap-1  ">
+        {/* <ul className="flex flex-col   gap-1  ">
           {resInfo.services.map((service, s) => {
             return (
               <li
@@ -47,7 +48,7 @@ const RestaurantCard = ({ resInfo }: RestaurantPropsTypes) => {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
         <Button className="bg-white border-2 border-primary text-primary text-sm font-extrabold hover:border-none hover:text-white relative">
           <Link href={"/menu/restaurant/" + resInfo.id}>
             Menu
