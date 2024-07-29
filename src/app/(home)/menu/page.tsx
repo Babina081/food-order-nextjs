@@ -25,7 +25,7 @@ interface MenuPageProps {
   restaurants: RestaurantInfoType[];
 }
 
-export const getRestaurants:GetServerSideProps = async () => {
+const getRestaurants = async () => {
   try {
     const response = await fetch(`http://localhost:3000/api/v1/restaurants`, {
       method: "GET",
@@ -44,25 +44,9 @@ export const getRestaurants:GetServerSideProps = async () => {
     console.log(error);
   }
 };
-const MenuPage: React.FC<MenuPageProps> = ({restaurants}) => {
-  // const restaurants = await getRestaurants();
-  // const [restaurants, setRestaurants] = useState<RestaurantInfoType[] | null>(
-  //   null
-  // );
 
-  // useEffect(() => {
-  //   const fetchRestaurants = async () => {
-  //     try {
-  //       const data = await getRestaurants();
-  //       if (data) {
-  //         setRestaurants(data);
-  //       }
-  //     } catch (error) {
-  //       console.error("Error fetching restaurants:", error);
-  //     }
-  //   };
-  //   fetchRestaurants();
-  // }, []);
+export default async function MenuPage() {
+  const restaurants = await getRestaurants();
 
   return (
     <section className="container flex flex-col w-full mx-auto gap-4 py-10 ">
@@ -76,6 +60,4 @@ const MenuPage: React.FC<MenuPageProps> = ({restaurants}) => {
       )}
     </section>
   );
-};
-
-export default MenuPage;
+}
