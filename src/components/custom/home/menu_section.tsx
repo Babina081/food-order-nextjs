@@ -68,8 +68,10 @@ const MenuSection = () => {
                   <PaginationItem>
                     <PaginationPrevious
                       onClick={() => handlePageChange(currentPage - 1)}
-                      className={`cursor-pointer  ${
-                        currentPage === 1 ? "opacity-30" : " cursor-pointer"
+                      className={`  ${
+                        currentPage === 1
+                          ? "opacity-30 cursor-default"
+                          : " cursor-pointer"
                       }`}
                     />
                   </PaginationItem>
@@ -96,7 +98,7 @@ const MenuSection = () => {
                       onClick={() => handlePageChange(currentPage + 1)}
                       className={`${
                         currentPage === totalPages
-                          ? "opacity-30"
+                          ? "opacity-30 cursor-default"
                           : "cursor-pointer "
                       }`}
                     />
