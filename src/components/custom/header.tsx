@@ -32,10 +32,10 @@ const menuItems: MenuItem[] = [
     url: "/home",
     icon: "AlignHorizontalJustifyEnd",
   },
-  { name: "About", url: "/about", icon: "Info" },
-  { name: "Contact", url: "/contact", icon: "Contact" },
   { name: "Menu", url: "/menu", icon: "ScrollText" },
   { name: "Orders", url: "/orders", icon: "HandPlatter" },
+  { name: "About", url: "/about", icon: "Info" },
+  { name: "Contact", url: "/contact", icon: "Contact" },
 ];
 
 const Header = () => {
@@ -94,8 +94,7 @@ const Header = () => {
               );
             })}
           </ul>
-
-          <div className="gap-4 flex justify-center items-center">
+          {/* <div className="gap-4 flex justify-center items-center">
             <Select>
               <SelectTrigger className="w-[180px] focus:ring-0">
                 <SelectValue placeholder="Select Restaurant" />
@@ -106,7 +105,7 @@ const Header = () => {
                 <SelectItem value="kids-corner">Kids Corner</SelectItem>
               </SelectContent>
             </Select>
-          </div>
+          </div> */}
           <div className="flex gap-2 justify-center items-center">
             <Button
               className="w-full cursor-pointer"
