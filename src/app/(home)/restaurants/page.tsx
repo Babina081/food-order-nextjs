@@ -1,25 +1,32 @@
 import OpenCloseStatus from "@/components/custom/menu/restaurants/open_close_status";
 import { Restaurant } from "@/components/custom/menu/restaurants/restaurant";
 import { Button } from "@/components/ui/button";
+import { MenuProps } from "@/data/restaurants_list";
 import { ArrowDownAZ, ArrowUpAZ, ArrowUpZA, Clock } from "lucide-react";
 import { GetServerSideProps } from "next";
 // import { Restaurant } from "@/data/restaurants_list";
 import React, { useEffect, useState } from "react";
 
 export interface RestaurantInfoType {
+  id: number;
   name: string;
-  address: string;
-  rating: number;
-  reviewNum: number;
   locationUrl: string;
-  orderLimit: number;
+  address: string;
+  isAvailable: boolean;
+  isFavorite: boolean;
+  favCount: number;
+  menuLists: MenuProps[];
+  services: string[];
+  restaurantImage: string;
+  gallery: string[];
+  minOrder: number;
+  reviewNum?: number;
+  rating: number;
   image: string;
   images: string[];
-  isAvailable: boolean;
   isFeatured: boolean;
-  isFavorite: boolean;
+  orderLimit: number;
   dateCreated: Date;
-  id: number;
 }
 
 interface MenuPageProps {

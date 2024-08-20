@@ -134,7 +134,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 500,
-    reviewsCount: 120,
+    reviewNum: 120,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 2,
@@ -244,7 +250,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 1000,
-    reviewsCount: 85,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 3,
@@ -354,7 +365,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 300,
-    reviewsCount: 55,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 4,
@@ -464,7 +480,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 800,
-    reviewsCount: 175,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 5,
@@ -574,7 +595,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 700,
-    reviewsCount: 92,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 6,
@@ -684,7 +710,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 600,
-    reviewsCount: 110,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 7,
@@ -794,7 +825,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 42,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 8,
@@ -904,7 +940,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 900,
-    reviewsCount: 150,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 9,
@@ -1014,7 +1055,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 350,
-    reviewsCount: 28,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 10,
@@ -1124,7 +1170,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 550,
-    reviewsCount: 63,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 11,
@@ -1234,7 +1285,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 250,
-    reviewsCount: 37,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 12,
@@ -1344,7 +1400,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 450,
-    reviewsCount: 72,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 13,
@@ -1454,7 +1515,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 200,
-    reviewsCount: 14,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 14,
@@ -1564,7 +1630,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 700,
-    reviewsCount: 98,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 15,
@@ -1674,7 +1745,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 600,
-    reviewsCount: 81,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 16,
@@ -1784,7 +1860,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 650,
-    reviewsCount: 47,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 17,
@@ -1894,7 +1975,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 300,
-    reviewsCount: 36,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 18,
@@ -2004,7 +2090,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 57,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 19,
@@ -2114,7 +2205,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 550,
-    reviewsCount: 23,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 20,
@@ -2224,7 +2320,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 750,
-    reviewsCount: 112,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 21,
@@ -2334,7 +2435,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 31,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 22,
@@ -2444,7 +2550,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 31,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 23,
@@ -2554,7 +2665,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 600,
-    reviewsCount: 69,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 24,
@@ -2664,7 +2780,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 500,
-    reviewsCount: 27,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 25,
@@ -2774,7 +2895,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 650,
-    reviewsCount: 45,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 26,
@@ -2884,7 +3010,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 300,
-    reviewsCount: 39,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 27,
@@ -2994,7 +3125,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 58,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 28,
@@ -3104,7 +3240,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 600,
-    reviewsCount: 33,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 29,
@@ -3214,7 +3355,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 750,
-    reviewsCount: 92,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 30,
@@ -3324,7 +3470,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 31,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 31,
@@ -3434,7 +3585,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 31,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 32,
@@ -3544,7 +3700,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 600,
-    reviewsCount: 69,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 33,
@@ -3654,7 +3815,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 500,
-    reviewsCount: 27,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 34,
@@ -3764,7 +3930,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 650,
-    reviewsCount: 45,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 35,
@@ -3874,7 +4045,12 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 300,
-    reviewsCount: 39,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
   {
     id: 36,
@@ -3984,6 +4160,11 @@ export const restaurantsInfo: Restaurant[] = [
       "/food6.png",
     ],
     minOrder: 400,
-    reviewsCount: 58,
+    rating: 4.5, // Adding the rating property
+    image: "/restaurant-main.jpg", // Adding the image property
+    images: ["/restaurant1.jpg", "/restaurant2.jpg"], // Adding the images property
+    isFeatured: true, // Adding the isFeatured property
+    orderLimit: 5, // Adding the orderLimit property
+    dateCreated: new Date("2023-01-01"), // Adding the dateCreated property
   },
 ];
