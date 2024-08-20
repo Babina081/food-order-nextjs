@@ -5,6 +5,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
+import { useRouter } from "next/navigation";
 
 const BannerSection = () => {
   useEffect(() => {
@@ -54,6 +55,8 @@ const BannerSection = () => {
       });
   }, []);
 
+  const router = useRouter();
+
   return (
     <section className=" pt-[3rem] pb-[3rem] relative z-0 container">
       <div className="flex flex-col md:flex-row items-center justify-between overflow-hidden gap-4 w-full">
@@ -69,7 +72,13 @@ const BannerSection = () => {
           <p className="text-lg lg:text-2xl mt-8 max-w-lg leading-snug">
             Enjoy a Free Meal if Your Order Takes More Than 45 Minutes!
           </p>
-          <Button className="mt-8 text-lg rounded-full py-7 px-6 font-bold">
+
+          <Button
+            className="mt-8 text-lg rounded-full py-7 px-6 font-bold"
+            onClick={() => {
+              router.push("/restaurants");
+            }}
+          >
             Order Now
           </Button>
         </div>
