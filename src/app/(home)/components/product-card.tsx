@@ -22,6 +22,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import ToppingList from "./topping-list";
 import { ShoppingCart } from "lucide-react";
+import burgerImage from "../../../../public/burger.svg";
 
 export type Product = {
   id: string;
@@ -41,7 +42,8 @@ const ProductCard = ({ product }: PropTypes) => {
       <CardHeader className="flex items-center justify-center">
         <Image
           alt="burger image"
-          src={"/burger.svg"}
+          src={burgerImage}
+          priority
           width={150}
           height={150}
         ></Image>
@@ -62,11 +64,15 @@ const ProductCard = ({ product }: PropTypes) => {
           </DialogTrigger>
 
           <DialogContent className="max-w-3xl p-0 ">
+            <DialogTitle className="hidden">
+              Are you absolutely sure?
+            </DialogTitle>
             <div className="flex ">
               <div className="w-1/3 bg-white rounded p-8 flex items-center justify-center">
                 <Image
                   alt={product.name}
-                  src={"/burger.svg"}
+                  src={burgerImage}
+                  priority
                   width={450}
                   height={450}
                 ></Image>

@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import { gsap } from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useRouter } from "next/navigation";
+import burgerImage from "../../../../public/burger.svg";
 
 const BannerSection = () => {
   useEffect(() => {
@@ -86,7 +87,8 @@ const BannerSection = () => {
         <div className=" w-auto md:w-2/4  lg:w-[40%]">
           {/* <CarouselBannerImage /> */}
           <Image
-            src="/burger.svg"
+            src={burgerImage}
+            priority
             alt="burger"
             width={400}
             height={400}

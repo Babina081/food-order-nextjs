@@ -9,13 +9,15 @@ import {
 } from "@/components/ui/carousel";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
+import burgerImage from "../../../../public/burger.svg";
 
 const CarouselBannerImage = () => {
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: true })
   );
   return (
-    <Carousel className="overflow-hidden"
+    <Carousel
+      className="overflow-hidden"
       plugins={[plugin.current]}
       orientation="vertical"
       opts={{
@@ -31,7 +33,7 @@ const CarouselBannerImage = () => {
       <CarouselContent>
         <CarouselItem className="w">
           <Image
-            src="/burger.svg"
+            src={burgerImage}
             alt="burger"
             width={500}
             height={500}
@@ -40,7 +42,7 @@ const CarouselBannerImage = () => {
         <CarouselItem>
           {" "}
           <Image
-            src="/burger.svg"
+            src={burgerImage}
             alt="burger"
             width={500}
             height={500}
@@ -49,7 +51,7 @@ const CarouselBannerImage = () => {
         <CarouselItem>
           {" "}
           <Image
-            src="/burger.svg"
+            src={burgerImage}
             alt="burger"
             width={500}
             height={500}
