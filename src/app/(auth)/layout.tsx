@@ -25,7 +25,7 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
       </div>
       <div className=" w-full max-w-3xl ">
         {children}
-      </div>
+        </div>
     </div>
   );
 };
