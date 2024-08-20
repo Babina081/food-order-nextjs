@@ -63,7 +63,7 @@ const ProductCard = ({ product }: PropTypes) => {
             Choose
           </DialogTrigger>
 
-          <DialogContent className="max-w-3xl p-0 ">
+          <DialogContent className="max-w-3xl p-0 " id="dialog-description">
             <DialogTitle className="hidden">
               Are you absolutely sure?
             </DialogTitle>
