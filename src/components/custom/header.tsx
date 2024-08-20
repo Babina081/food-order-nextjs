@@ -32,7 +32,7 @@ const menuItems: MenuItem[] = [
     url: "/home",
     icon: "AlignHorizontalJustifyEnd",
   },
-  { name: "Menu", url: "/menu", icon: "ScrollText" },
+  { name: "Restaurants", url: "/restaurants", icon: "ScrollText" },
   { name: "Orders", url: "/orders", icon: "HandPlatter" },
   { name: "About", url: "/about", icon: "Info" },
   { name: "Contact", url: "/contact", icon: "Contact" },
