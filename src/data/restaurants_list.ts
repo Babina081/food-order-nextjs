@@ -6,7 +6,7 @@ export type MenuProps = {
 export type Restaurant = {
   id: number;
   name: string;
-  location: string;
+  locationUrl: string;
   address: string;
   isAvailable: boolean;
   isFavorite: boolean;
@@ -16,14 +16,20 @@ export type Restaurant = {
   restaurantImage: string;
   gallery: string[];
   minOrder: number;
-  reviewsCount: number;
+  reviewNum?: number;
+  rating: number;
+  image: string;
+  images: string[];
+  isFeatured: boolean;
+  orderLimit: number;
+  dateCreated: Date;
 };
 
 export const restaurantsInfo: Restaurant[] = [
   {
     id: 1,
     name: "Himalayan Java",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -127,13 +133,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 500, // in local currency
+    minOrder: 500,
     reviewsCount: 120,
   },
   {
     id: 2,
     name: "Moondance Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -237,13 +243,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 1000, // in local currency
+    minOrder: 1000,
     reviewsCount: 85,
   },
   {
     id: 3,
     name: "New Everest Momo Center",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Mahendrapul, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -347,13 +353,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 300, // in local currency
+    minOrder: 300,
     reviewsCount: 55,
   },
   {
     id: 4,
     name: "Or2k",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -457,13 +463,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 800, // in local currency
+    minOrder: 800,
     reviewsCount: 175,
   },
   {
     id: 5,
     name: "Busy Bee Cafe",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -567,13 +573,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 700, // in local currency
+    minOrder: 700,
     reviewsCount: 92,
   },
   {
     id: 6,
     name: "Aangan Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -677,13 +683,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 600, // in local currency
+    minOrder: 600,
     reviewsCount: 110,
   },
   {
     id: 7,
     name: "Pokhara Java",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -787,13 +793,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 42,
   },
   {
     id: 8,
     name: "Lakeside Kitchen & Bar",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -897,13 +903,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 900, // in local currency
+    minOrder: 900,
     reviewsCount: 150,
   },
   {
     id: 9,
     name: "Caffe Concerto",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -1007,13 +1013,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 350, // in local currency
+    minOrder: 350,
     reviewsCount: 28,
   },
   {
     id: 10,
     name: "Yangling Tibetan Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -1117,13 +1123,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 550, // in local currency
+    minOrder: 550,
     reviewsCount: 63,
   },
   {
     id: 11,
     name: "Black & White Cafe",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -1227,13 +1233,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 250, // in local currency
+    minOrder: 250,
     reviewsCount: 37,
   },
   {
     id: 12,
     name: "La Bella Nepali Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -1337,13 +1343,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 450, // in local currency
+    minOrder: 450,
     reviewsCount: 72,
   },
   {
     id: 13,
     name: "Momo Hut",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -1447,13 +1453,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 200, // in local currency
+    minOrder: 200,
     reviewsCount: 14,
   },
   {
     id: 14,
     name: "Maya Devi Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -1557,13 +1563,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 700, // in local currency
+    minOrder: 700,
     reviewsCount: 98,
   },
   {
     id: 15,
     name: "Godfather's Pizzeria",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -1667,13 +1673,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 600, // in local currency
+    minOrder: 600,
     reviewsCount: 81,
   },
   {
     id: 16,
     name: "Pho 99 Vietnamese Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -1777,13 +1783,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 650, // in local currency
+    minOrder: 650,
     reviewsCount: 47,
   },
   {
     id: 17,
     name: "Potala Tibetan Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -1887,13 +1893,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 300, // in local currency
+    minOrder: 300,
     reviewsCount: 36,
   },
   {
     id: 18,
     name: "Big B Burger",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -1997,13 +2003,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 57,
   },
   {
     id: 19,
     name: "Om Shanti Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -2107,13 +2113,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 550, // in local currency
+    minOrder: 550,
     reviewsCount: 23,
   },
   {
     id: 20,
     name: "Fire & Ice Pizzeria",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -2217,13 +2223,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 750, // in local currency
+    minOrder: 750,
     reviewsCount: 112,
   },
   {
     id: 21,
     name: "Cafe Concerto",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -2327,13 +2333,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 31,
   },
   {
     id: 22,
     name: "Caffe Concerto",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -2437,13 +2443,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 31,
   },
   {
     id: 23,
     name: "Boomerang Restaurant & German Bakery",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -2547,13 +2553,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 600, // in local currency
+    minOrder: 600,
     reviewsCount: 69,
   },
   {
     id: 24,
     name: "Rosemary Kitchen & Coffee Shop",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -2657,13 +2663,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 500, // in local currency
+    minOrder: 500,
     reviewsCount: 27,
   },
   {
     id: 25,
     name: "Peace Eye Guest House & Korean Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -2767,13 +2773,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 650, // in local currency
+    minOrder: 650,
     reviewsCount: 45,
   },
   {
     id: 26,
     name: "Mo:Mo & Co. Cafe & Bar",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -2877,13 +2883,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 300, // in local currency
+    minOrder: 300,
     reviewsCount: 39,
   },
   {
     id: 27,
     name: "Laurel Bakery Cafe",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -2987,13 +2993,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 58,
   },
   {
     id: 28,
     name: "Metro Restaurant & Bar",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -3097,13 +3103,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 600, // in local currency
+    minOrder: 600,
     reviewsCount: 33,
   },
   {
     id: 29,
     name: "Fire & Ice Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -3207,13 +3213,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 750, // in local currency
+    minOrder: 750,
     reviewsCount: 92,
   },
   {
     id: 30,
     name: "Caffe Concerto",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -3317,13 +3323,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 31,
   },
   {
     id: 31,
     name: "Caffe Concerto",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -3427,13 +3433,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 31,
   },
   {
     id: 32,
     name: "Boomerang Restaurant & German Bakery",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -3537,13 +3543,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 600, // in local currency
+    minOrder: 600,
     reviewsCount: 69,
   },
   {
     id: 33,
     name: "Rosemary Kitchen & Coffee Shop",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -3647,13 +3653,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 500, // in local currency
+    minOrder: 500,
     reviewsCount: 27,
   },
   {
     id: 34,
     name: "Peace Eye Guest House & Korean Restaurant",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -3757,13 +3763,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 650, // in local currency
+    minOrder: 650,
     reviewsCount: 45,
   },
   {
     id: 35,
     name: "Mo:Mo & Co. Cafe & Bar",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: false,
@@ -3867,13 +3873,13 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 300, // in local currency
+    minOrder: 300,
     reviewsCount: 39,
   },
   {
     id: 36,
     name: "Laurel Bakery Cafe",
-    location: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
+    locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
     isAvailable: true,
     isFavorite: true,
@@ -3977,7 +3983,7 @@ export const restaurantsInfo: Restaurant[] = [
       "/food5.png",
       "/food6.png",
     ],
-    minOrder: 400, // in local currency
+    minOrder: 400,
     reviewsCount: 58,
   },
 ];

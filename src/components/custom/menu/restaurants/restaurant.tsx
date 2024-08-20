@@ -1,21 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { restaurantsInfo } from "@/data/restaurants_list";
 import RestaurantCard from "@/components/custom/menu/restaurants/restaurant_card";
-import { Search } from "lucide-react";
 import ProgressBar from "../../progress_bar";
 import ProgressCircle from "../../progress_circle";
-import SearchForm from "./searchForm";
-import { RestaurantInfoType } from "@/app/(home)/menu/page";
+import { RestaurantInfoType } from "@/app/(home)/restaurants/page";
+import { restaurantsInfo } from "@/data/restaurants_list";
 
 interface Props {
   restaurants: RestaurantInfoType[];
 }
 
-export const Restaurant: React.FC<Props> = ({ restaurants }) => {
-  const [filteredRestaurants, setFilteredRestaurants] =
-    useState<RestaurantInfoType[]>(restaurants);
+export const Restaurant: React.FC<Props> = () => {
+  // const [filteredRestaurants, setFilteredRestaurants] =
+  //   useState<RestaurantInfoType[]>(restaurants);
   // const handleSearch = (query: string) => {
   //   setFilteredRestaurants(
   //     restaurantsInfo.filter((resInfo) =>
@@ -52,6 +50,14 @@ export const Restaurant: React.FC<Props> = ({ restaurants }) => {
           <>
             <TabsContent value="all">
               <div className="grid  grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 mt-6">
+                {restaurantsInfo.map((resInfo) => {
+                  return (
+                    <RestaurantCard
+                      key={resInfo.id}
+                      resInfo={resInfo}
+                    ></RestaurantCard>
+                  );
+                })}
                 {/* {
                   restaurantsInfo.map((resInfo) => {
                     return (
@@ -63,14 +69,14 @@ export const Restaurant: React.FC<Props> = ({ restaurants }) => {
                       </>
                     );
                   })} */}
-                {filteredRestaurants.map((resInfo) => {
+                {/* {filteredRestaurants.map((resInfo) => {
                   return (
                     <RestaurantCard
                       key={resInfo.id}
                       resInfo={resInfo}
                     ></RestaurantCard>
                   );
-                })}
+                })} */}
               </div>
             </TabsContent>
             {/* <TabsContent value="delivery">
