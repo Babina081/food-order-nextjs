@@ -9,6 +9,8 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { ArrowBigLeft } from "lucide-react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
@@ -52,8 +54,15 @@ const LoginPage = () => {
   const router = useRouter();
 
   return (
-    <div className="bg-white flex justify-center items-center  h-screen">
+    <div className=" flex flex-col justify-center items-center  h-screen">
       {" "}
+      <Link
+        href="/home"
+        className="flex items-center gap-2 mb-4 font-bold text-black hover:text-black/20 transition-all duration-150 ease-in-out hover:scale-125"
+      >
+        <ArrowBigLeft />
+        Back to Home Page
+      </Link>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 ">
           <h1 className="font-bold text-primary  text-3xl ">Sign In</h1>
