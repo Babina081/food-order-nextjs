@@ -86,7 +86,7 @@ const RestaurantDetails = ({
               <ImageIcon /> View Photo
             </DialogTrigger>
 
-            <DialogContent className=" bg-green-500">
+            <DialogContent className=" bg-green-500" id="dialog-description">
             <DialogTitle className="hidden">Are you absolutely sure?</DialogTitle>
               <div className="carousel ">
                 <div className="carousel__item carousel__item--left">
