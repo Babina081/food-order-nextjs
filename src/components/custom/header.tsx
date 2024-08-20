@@ -19,6 +19,8 @@ import {
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
+import { useAuth, useUser } from "@clerk/nextjs";
+import avatarImage from "../../../public/avatar.png";
 
 interface MenuItem {
   name: string;
@@ -42,10 +44,19 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentPathname = usePathname();
   const router = useRouter();
+  const { isSignedIn, signOut } = useAuth();
+  const { user } = useUser();
+  console.log("user",  user);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/home");
+  };
+
+  console.log(isSignedIn);
 
   return (
     <header className="bg-white fixed z-10 w-full ">
@@ -106,20 +117,39 @@ const Header = () => {
               </SelectContent>
             </Select>
           </div> */}
-          <div className="flex gap-2 justify-center items-center">
-            <Button
-              className="w-full cursor-pointer"
-              onClick={() => router.push("/login")}
-            >
-              Login
-            </Button>
-            <Button
-              className="w-full  cursor-pointer"
-              onClick={() => router.push("/signup")}
-            >
-              Signup
-            </Button>
-          </div>
+          {isSignedIn ? (
+            <div className="flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full">
+                <Image
+                  src={user?.imageUrl ? `/${user.imageUrl}` : avatarImage}
+                  alt="profile"
+                  width={50}
+                  height={50}
+                  className="rounded-full border border-black "
+                ></Image>
+              </div>
+              <span className="font-bold">Hello, {user?.firstName}</span>
+              <Button className="cursor-pointer" onClick={handleSignOut}>
+                Logout
+              </Button>
+            </div>
+          ) : (
+            <div className="flex gap-2 justify-center items-center">
+              <Button
+                className="w-full cursor-pointer"
+                onClick={() => router.push("/login")}
+              >
+                Login
+              </Button>
+              <Button
+                className="w-full  cursor-pointer"
+                onClick={() => router.push("/signup")}
+              >
+                Signup
+              </Button>
+            </div>
+          )}
+
           <div className="relative">
             <Link href="/cart" passHref>
               <ShoppingBasket className="hover:text-primary" />
