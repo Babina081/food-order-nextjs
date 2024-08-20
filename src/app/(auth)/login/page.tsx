@@ -15,6 +15,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { FaGoogle } from "react-icons/fa";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -103,6 +104,12 @@ const LoginPage = () => {
           </p>
         </form>
       </Form>
+      <Button asChild className="mt-10 bg-gray-400 hover:bg-gray-200 font-bold">
+        <Link href="/home" className="flex items-center gap-4 justify-center">
+          <FaGoogle />
+          <span>Continue with Google</span>
+        </Link>
+      </Button>
     </div>
   );
 };
