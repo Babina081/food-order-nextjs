@@ -1,8 +1,12 @@
-"use cient";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const NotFound = () => {
+  const router = useRouter();
   return (
-    <section className=" container w-screen p-20  flex flex-col items-center justify-center  h-full">
+    <section className=" container w-screen p-20  flex flex-col items-center justify-center  h-screen my-auto">
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -123,6 +127,9 @@ const NotFound = () => {
           </g>
         </g>
       </svg>
+      <Button onClick={() => router.push("/home")}>
+        Return Back to Home Page
+      </Button>
     </section>
   );
 };
