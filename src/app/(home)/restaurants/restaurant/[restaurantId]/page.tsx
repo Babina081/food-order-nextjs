@@ -87,6 +87,7 @@ const RestaurantDetails = ({
             </DialogTrigger>
 
             <DialogContent className=" bg-green-500">
+            <DialogTitle className="hidden">Are you absolutely sure?</DialogTitle>
               <div className="carousel ">
                 <div className="carousel__item carousel__item--left">
                   <Image
@@ -217,7 +218,7 @@ const RestaurantDetails = ({
         <div className="md:row-span-2 rounded-2xl flex flex-col gap-4 p-2 flex-grow border-2 border-primary shadow-md shadow-white/30">
           {menuLists.map((menu, id) => {
             return (
-              <>
+              <div key={id}>
                 <Collapsible>
                   <CollapsibleTrigger className="flex justify-between items-center w-full p-4 bg-transparent">
                     <h1 className="text-lg md:text-xl font-bold cursor-pointer">
@@ -242,7 +243,7 @@ const RestaurantDetails = ({
                             <TableRow className="w-full">
                               <TableCell className="font-medium w-1/6">
                                 <Image
-                                  src={"/menu_item.image"}
+                                  src={"/food1.png"}
                                   alt="menu item image"
                                   height={100}
                                   width={100}
@@ -267,7 +268,7 @@ const RestaurantDetails = ({
                     </Table>
                   </CollapsibleContent>
                 </Collapsible>
-              </>
+              </div>
             );
           })}
         </div>
