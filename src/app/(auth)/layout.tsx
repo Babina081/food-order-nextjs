@@ -23,7 +23,9 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
           ></Image>
         </div>
       </div>
-      <>{children}</>
+      <div className="container border-2 border-black w-full max-w-3xl ">
+        {children}
+      </div>
     </div>
   );
 };
