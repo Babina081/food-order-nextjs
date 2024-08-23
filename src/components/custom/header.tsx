@@ -21,6 +21,7 @@ import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { useAuth, useUser } from "@clerk/nextjs";
 import avatarImage from "../../../public/avatar.png";
+import { useAppSelector } from "@/lib/store/hooks";
 
 interface MenuItem {
   name: string;
@@ -41,12 +42,13 @@ const menuItems: MenuItem[] = [
 ];
 
 const Header = () => {
+  const items = useAppSelector((state) => state.cart.items);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentPathname = usePathname();
   const router = useRouter();
   const { isSignedIn, signOut } = useAuth();
   const { user } = useUser();
-  console.log("user",  user);
+  console.log("user", user);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
@@ -155,7 +157,7 @@ const Header = () => {
               <ShoppingBasket className="hover:text-primary" />
             </Link>
             <span className="absolute -top-4 -right-4 items-center flex justify-center rounded-full bg-primary font-bold text-white w-6 h-6">
-              3
+              {items.length}
             </span>
           </div>
         </div>
