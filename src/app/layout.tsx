@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ClerkProvider } from "@clerk/nextjs";
 import StoreProvider from "./StoreProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 const manrope = Manrope({ subsets: ["latin"], variable: "--font-manrope" });
 
@@ -26,7 +27,10 @@ export default function RootLayout({
             manrope.variable
           )}
         >
-          <StoreProvider>{children}</StoreProvider>
+          <StoreProvider>
+            {children}
+            <Toaster></Toaster>
+          </StoreProvider>
         </body>
       </html>
     </ClerkProvider>
