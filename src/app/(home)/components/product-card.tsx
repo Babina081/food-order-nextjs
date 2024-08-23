@@ -23,6 +23,8 @@ import { Button } from "@/components/ui/button";
 import ToppingList from "./topping-list";
 import { ShoppingCart } from "lucide-react";
 import burgerImage from "../../../../public/burger.svg";
+import { useAppDispatch } from "@/lib/store/hooks";
+import { add } from "@/lib/store/features/cart/cartSlice";
 
 export type Product = {
   id: string;
@@ -37,6 +39,11 @@ export type Product = {
 type PropTypes = { product: Product };
 
 const ProductCard = ({ product }: PropTypes) => {
+  const dispatch = useAppDispatch();
+  const handleAddToCart = (productId: string) => {
+    console.log("Adding to cart", product);
+    dispatch(add(product.id));
+  };
   return (
     <Card className="border-none rounded-xl ">
       <CardHeader className="flex items-center justify-center">
@@ -175,7 +182,7 @@ const ProductCard = ({ product }: PropTypes) => {
 
                 <div className="flex items-center mt-12 justify-between ">
                   <span className="font-bold">Rs 1005</span>
-                  <Button>
+                  <Button onClick={() => handleAddToCart(product.id)}>
                     <ShoppingCart size={20} />
                     <span className=" ml-2">Add to Cart</span>
                   </Button>
