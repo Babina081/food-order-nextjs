@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -25,6 +25,7 @@ import { ShoppingCart } from "lucide-react";
 import burgerImage from "../../../../public/burger.svg";
 import { useAppDispatch } from "@/lib/store/hooks";
 import { add } from "@/lib/store/features/cart/cartSlice";
+import toast from "react-hot-toast";
 
 export type Product = {
   id: string;
@@ -40,9 +41,12 @@ type PropTypes = { product: Product };
 
 const ProductCard = ({ product }: PropTypes) => {
   const dispatch = useAppDispatch();
-  const handleAddToCart = (productId: string) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const handleAddToCart = (product: any) => {
     console.log("Adding to cart", product);
-    dispatch(add(product.id));
+    dispatch(add(product));
+    toast.success(`${product.name} Added to cart`);
+    setIsDialogOpen(false);
   };
   return (
     <Card className="border-none rounded-xl ">
@@ -65,7 +69,7 @@ const ProductCard = ({ product }: PropTypes) => {
           <span className="font-bold"> Rs {product.price}</span>
         </p>
 
-        <Dialog>
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
           <DialogTrigger className="bg-orange-200 hover:bg-orange-300 text-orange-500 px-6 py-2 rounded-full shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150">
             Choose
           </DialogTrigger>
@@ -182,7 +186,7 @@ const ProductCard = ({ product }: PropTypes) => {
 
                 <div className="flex items-center mt-12 justify-between ">
                   <span className="font-bold">Rs 1005</span>
-                  <Button onClick={() => handleAddToCart(product.id)}>
+                  <Button onClick={() => handleAddToCart(product)}>
                     <ShoppingCart size={20} />
                     <span className=" ml-2">Add to Cart</span>
                   </Button>
