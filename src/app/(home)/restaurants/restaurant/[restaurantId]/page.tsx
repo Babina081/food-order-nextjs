@@ -87,7 +87,7 @@ const RestaurantDetails = ({
             </DialogTrigger>
 
             <DialogContent className=" bg-green-500" id="dialog-description">
-            <DialogTitle className="hidden">Are you absolutely sure?</DialogTitle>
+              <DialogTitle className="hidden">Are you absolutely sure?</DialogTitle>
               <div className="carousel ">
                 <div className="carousel__item carousel__item--left">
                   <Image
@@ -202,7 +202,6 @@ const RestaurantDetails = ({
                   className="border-1 border-black 
                   border-transparent hover:text-primary transition-all duration-300 ease-in-out text-xl h-full"
                 >
-                  {id}
                   {menu.category}
                 </TabsTrigger>
               ))}

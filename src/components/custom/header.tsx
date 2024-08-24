@@ -122,7 +122,7 @@ const Header = () => {
           </div> */}
           {isSignedIn ? (
             <div className="flex items-center gap-1">
-              <span className="font-bold tracking-tighter">Hello, {user?.firstName}</span>
+              <span className="font-bold ">Hello, {user?.firstName}</span>
               <Avatar>
                 <AvatarImage
                   src={user?.imageUrl}
