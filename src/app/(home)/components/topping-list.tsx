@@ -7,26 +7,26 @@ const toppings = [
     id: "1",
     name: "Chicken",
     image: "/Subject.png",
-    price: 500,
+    price: 100,
     isAvailable: true,
   },
   {
     id: "2",
     name: "Chicken",
     image: "/Subject.png",
-    price: 500,
+    price: 200,
     isAvailable: true,
   },
   {
     id: "3",
     name: "Chicken",
     image: "/Subject.png",
-    price: 500,
+    price: 300,
     isAvailable: true,
   },
 ];
 
-const ToppingList = () => {
+const ToppingList = ({ onToppingsChange }: any) => {
   const [selectedToppings, setSelectedToppings] = React.useState([toppings[0]]);
 
   const handleCheckboxCheck = (topping: Topping) => {
