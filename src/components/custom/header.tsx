@@ -121,7 +121,8 @@ const Header = () => {
             </Select>
           </div> */}
           {isSignedIn ? (
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1">
+              <span className="font-bold tracking-tighter">Hello, {user?.firstName}</span>
               <Avatar>
                 <AvatarImage
                   src={user?.imageUrl}
@@ -129,7 +130,6 @@ const Header = () => {
                 />
                 <AvatarFallback>CN</AvatarFallback>
               </Avatar>
-              <span className="font-bold">Hello, {user?.firstName}</span>
               <Button className="cursor-pointer" onClick={handleSignOut}>
                 Logout
               </Button>
