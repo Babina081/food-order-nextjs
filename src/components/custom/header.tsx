@@ -49,7 +49,7 @@ const Header = () => {
   const router = useRouter();
   const { isSignedIn, signOut } = useAuth();
   const { user } = useUser();
-  console.log("user", user);
+  // console.log("user", user);
 
   const closeMenu = () => {
     setIsMenuOpen(false);
