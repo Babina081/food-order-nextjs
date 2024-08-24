@@ -1,12 +1,22 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import { NextRequest, NextResponse } from "next/server";
 
 //myapp.com/dashboard/*
 const isProtectedRoute = createRouteMatcher(["/home(.*)"]);
 
-export default clerkMiddleware((auth, req) => {
+export default clerkMiddleware((auth, req: NextRequest) => {
   if (isProtectedRoute(req)) {
     auth().protect();
   }
+  const url = req.nextUrl.clone();
+
+  // Redirect from root path to /home
+  if (url.pathname === "/") {
+    url.pathname = "/home";
+    return NextResponse.redirect(url);
+  }
+
+  return NextResponse.next();
 });
 
 export const config = {
