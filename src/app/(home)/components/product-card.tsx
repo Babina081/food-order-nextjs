@@ -35,15 +35,10 @@ export type Product = {
   price: number;
   category: string;
   restaurantId: number;
+  quantity: number;
 };
 
 type PropTypes = { product: Product };
-
-type SizeOptionsProps = {
-  small: number;
-  medium: number;
-  large: number;
-};
 
 const sizeOptions: Record<string, number> = {
   small: 0,
@@ -65,14 +60,14 @@ const ProductCard = ({ product }: PropTypes) => {
   const [totalPrice, setTotalPrice] = useState(product.price);
 
   const handleAddToCart = (product: any) => {
-    const selectedProduct = {
-      ...product,
-      selectedSize,
-      selectedCrust,
-      toppings,
-      totalPrice,
-    };
-    dispatch(add(selectedProduct));
+    // const selectedProduct = {
+    //   ...product,
+    //   selectedSize,
+    //   selectedCrust,
+    //   toppings,
+    //   totalPrice,
+    // };
+    dispatch(add(product));
     // console.log("Adding to cart", product);
     // dispatch(add(product));
     toast.success(`${product.name} Added to cart`);
@@ -168,39 +163,10 @@ const ProductCard = ({ product }: PropTypes) => {
                           htmlFor={size}
                           className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                         >
-                          {size.charAt(0).toUpperCase() + size.slice(1)}
+                          {size.charAt(0).toUpperCase() + size.slice(1)} - Rs{" "}
+                          {sizeOptions[size]}
                         </Label>
                       </div>
-
-                      // <div>
-                      //   <RadioGroupItem
-                      //     value="medium"
-                      //     id="medium"
-                      //     className="peer sr-only"
-                      //     aria-label="Medium"
-                      //   />
-                      //   <Label
-                      //     htmlFor="medium"
-                      //     className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      //   >
-                      //     Medium
-                      //   </Label>
-                      // </div>
-
-                      // <div>
-                      //   <RadioGroupItem
-                      //     value="large"
-                      //     id="large"
-                      //     className="peer sr-only"
-                      //     aria-label="Large"
-                      //   />
-                      //   <Label
-                      //     htmlFor="large"
-                      //     className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      //   >
-                      //     Large
-                      //   </Label>
-                      // </div>
                     ))}
                   </RadioGroup>
                 </div>
@@ -224,24 +190,10 @@ const ProductCard = ({ product }: PropTypes) => {
                           htmlFor={crust}
                           className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                         >
-                          {crust.charAt(0).toUpperCase() + crust.slice(1)}
+                          {crust.charAt(0).toUpperCase() + crust.slice(1)} - Rs{" "}
+                          {crustOptions[crust]}
                         </Label>
                       </div>
-
-                      // <div>
-                      //   <RadioGroupItem
-                      //     value="thick"
-                      //     id="thick"
-                      //     className="peer sr-only"
-                      //     aria-label="Thick"
-                      //   />
-                      //   <Label
-                      //     htmlFor="thick"
-                      //     className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      //   >
-                      //     Thick
-                      //   </Label>
-                      // </div>
                     ))}
                   </RadioGroup>
                 </div>
