@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./features/cart/cartSlice";
 import productReducer from "./features/product/productSlice";
-import { persistReducer } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -23,6 +23,9 @@ export const makeStore = () => {
       getDefaultMiddleware({ serializableCheck: false }),
   });
 };
+
+export const store = makeStore();
+export const persistor = persistStore(store);
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
