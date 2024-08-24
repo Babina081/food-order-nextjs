@@ -20,6 +20,14 @@ const CartPage = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.cart.items);
   console.log("list......", products);
+
+  const totalPrice = products.reduce(
+    (total, product) => total + product.price,
+    0
+  );
+
+  console.log(products);
+
   const handleRemove = (productId: string) => {
     dispatch(remove(productId));
   };
@@ -83,7 +91,7 @@ const CartPage = () => {
         <TableFooter>
           <TableRow>
             <TableCell colSpan={3}>Total</TableCell>
-            <TableCell className="text-right">$2,500.00</TableCell>
+            <TableCell className="text-right">${totalPrice}</TableCell>
           </TableRow>
         </TableFooter>
       </Table>
