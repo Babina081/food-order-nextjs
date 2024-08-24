@@ -22,6 +22,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { useAuth, useUser } from "@clerk/nextjs";
 import avatarImage from "../../../public/avatar.png";
 import { useAppSelector } from "@/lib/store/hooks";
+import { Avatar, AvatarFallback, AvatarImage } from "@radix-ui/react-avatar";
 
 interface MenuItem {
   name: string;
@@ -121,15 +122,13 @@ const Header = () => {
           </div> */}
           {isSignedIn ? (
             <div className="flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full">
-                <Image
-                  src={user?.imageUrl ? `/${user.imageUrl}` : avatarImage}
-                  alt="profile"
-                  width={50}
-                  height={50}
-                  className="rounded-full border border-black "
-                ></Image>
-              </div>
+              <Avatar>
+                <AvatarImage
+                  src={user?.imageUrl}
+                  className="h-10 w-10 rounded-full"
+                />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
               <span className="font-bold">Hello, {user?.firstName}</span>
               <Button className="cursor-pointer" onClick={handleSignOut}>
                 Logout
