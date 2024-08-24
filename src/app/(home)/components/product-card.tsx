@@ -39,15 +39,73 @@ export type Product = {
 
 type PropTypes = { product: Product };
 
+type SizeOptionsProps = {
+  small: number;
+  medium: number;
+  large: number;
+};
+
+const sizeOptions: Record<string, number> = {
+  small: 0,
+  medium: 50,
+  large: 100,
+};
+
+const crustOptions: Record<string, number> = {
+  thin: 0,
+  thick: 50,
+};
+
 const ProductCard = ({ product }: PropTypes) => {
   const dispatch = useAppDispatch();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedSize, setSelectedSize] = useState("small");
+  const [selectedCrust, setSelectedCrust] = useState("thin");
+  const [toppings, setToppings] = useState<string[]>([]);
+  const [totalPrice, setTotalPrice] = useState(product.price);
+
   const handleAddToCart = (product: any) => {
-    console.log("Adding to cart", product);
-    dispatch(add(product));
+    const selectedProduct = {
+      ...product,
+      selectedSize,
+      selectedCrust,
+      toppings,
+      totalPrice,
+    };
+    dispatch(add(selectedProduct));
+    // console.log("Adding to cart", product);
+    // dispatch(add(product));
     toast.success(`${product.name} Added to cart`);
     setIsDialogOpen(false);
   };
+
+  const handleSizeChange = (size: string) => {
+    setSelectedSize(size);
+    calculateTotal(size, selectedCrust, toppings);
+  };
+
+  const handleCrustChange = (crust: string) => {
+    setSelectedCrust(crust);
+    calculateTotal(selectedSize, crust, toppings);
+  };
+
+  const handleToppingsChange = (selectedToppings: string[]) => {
+    setToppings(selectedToppings);
+    calculateTotal(selectedSize, selectedCrust, selectedToppings);
+  };
+
+  const calculateTotal = (
+    size: string,
+    crust: string,
+    selectedToppings: string[]
+  ) => {
+    const sizeCost = sizeOptions[size]; // No error
+    const crustCost = crustOptions[crust]; // No error
+    const toppingsCost = selectedToppings.length * 20; // Example: Each topping costs Rs 20
+    const total = product.price + sizeCost + crustCost + toppingsCost;
+    setTotalPrice(total);
+  };
+
   return (
     <Card className="border-none rounded-xl ">
       <CardHeader className="flex items-center justify-center">
@@ -96,51 +154,54 @@ const ProductCard = ({ product }: PropTypes) => {
                   <RadioGroup
                     defaultValue="small"
                     className="grid grid-cols-3 gap-4 mt-2"
+                    onValueChange={handleSizeChange}
                   >
-                    <div>
-                      <RadioGroupItem
-                        value="small"
-                        id="small"
-                        className="peer sr-only"
-                        aria-label="Small"
-                      />
-                      <Label
-                        htmlFor="small"
-                        className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      >
-                        Small
-                      </Label>
-                    </div>
+                    {Object.keys(sizeOptions).map((size) => (
+                      <div key={size}>
+                        <RadioGroupItem
+                          value={size}
+                          id={size}
+                          className="peer sr-only"
+                          aria-label="Small"
+                        />
+                        <Label
+                          htmlFor={size}
+                          className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                        >
+                          {size.charAt(0).toUpperCase() + size.slice(1)}
+                        </Label>
+                      </div>
 
-                    <div>
-                      <RadioGroupItem
-                        value="medium"
-                        id="medium"
-                        className="peer sr-only"
-                        aria-label="Medium"
-                      />
-                      <Label
-                        htmlFor="medium"
-                        className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      >
-                        Medium
-                      </Label>
-                    </div>
+                      // <div>
+                      //   <RadioGroupItem
+                      //     value="medium"
+                      //     id="medium"
+                      //     className="peer sr-only"
+                      //     aria-label="Medium"
+                      //   />
+                      //   <Label
+                      //     htmlFor="medium"
+                      //     className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                      //   >
+                      //     Medium
+                      //   </Label>
+                      // </div>
 
-                    <div>
-                      <RadioGroupItem
-                        value="large"
-                        id="large"
-                        className="peer sr-only"
-                        aria-label="Large"
-                      />
-                      <Label
-                        htmlFor="large"
-                        className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      >
-                        Large
-                      </Label>
-                    </div>
+                      // <div>
+                      //   <RadioGroupItem
+                      //     value="large"
+                      //     id="large"
+                      //     className="peer sr-only"
+                      //     aria-label="Large"
+                      //   />
+                      //   <Label
+                      //     htmlFor="large"
+                      //     className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                      //   >
+                      //     Large
+                      //   </Label>
+                      // </div>
+                    ))}
                   </RadioGroup>
                 </div>
 
@@ -149,43 +210,48 @@ const ProductCard = ({ product }: PropTypes) => {
                   <RadioGroup
                     defaultValue="thin"
                     className="grid grid-cols-3 gap-4 mt-2"
+                    onValueChange={handleCrustChange}
                   >
-                    <div>
-                      <RadioGroupItem
-                        value="thin"
-                        id="thin"
-                        className="peer sr-only"
-                        aria-label="Thin"
-                      />
-                      <Label
-                        htmlFor="thin"
-                        className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      >
-                        Thin
-                      </Label>
-                    </div>
+                    {Object.keys(crustOptions).map((crust) => (
+                      <div key={crust}>
+                        <RadioGroupItem
+                          value={crust}
+                          id={crust}
+                          className="peer sr-only"
+                          aria-label={crust}
+                        />
+                        <Label
+                          htmlFor={crust}
+                          className="flex flex-col items-center justify-between rounded-md border-2 bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                        >
+                          {crust.charAt(0).toUpperCase() + crust.slice(1)}
+                        </Label>
+                      </div>
 
-                    <div>
-                      <RadioGroupItem
-                        value="thick"
-                        id="thick"
-                        className="peer sr-only"
-                        aria-label="Thick"
-                      />
-                      <Label
-                        htmlFor="thick"
-                        className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
-                      >
-                        Thick
-                      </Label>
-                    </div>
+                      // <div>
+                      //   <RadioGroupItem
+                      //     value="thick"
+                      //     id="thick"
+                      //     className="peer sr-only"
+                      //     aria-label="Thick"
+                      //   />
+                      //   <Label
+                      //     htmlFor="thick"
+                      //     className="flex flex-col items-center justify-between rounded-md border-2  bg-white p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                      //   >
+                      //     Thick
+                      //   </Label>
+                      // </div>
+                    ))}
                   </RadioGroup>
                 </div>
 
-                <ToppingList></ToppingList>
+                <ToppingList
+                  onToppingsChange={handleToppingsChange}
+                ></ToppingList>
 
                 <div className="flex items-center mt-12 justify-between ">
-                  <span className="font-bold">Rs 1005</span>
+                  <span className="font-bold">Rs {totalPrice}</span>
                   <Button onClick={() => handleAddToCart(product)}>
                     <ShoppingCart size={20} />
                     <span className=" ml-2">Add to Cart</span>
