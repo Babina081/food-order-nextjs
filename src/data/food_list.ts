@@ -9,6 +9,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 1,
+    quantity: 1,
   },
   {
     id: "2",
@@ -18,6 +19,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 2,
+    quantity: 1,
   },
   {
     id: "3",
@@ -27,6 +29,7 @@ export const products: Product[] = [
     price: 300,
     category: "food",
     restaurantId: 3,
+    quantity: 1,
   },
   {
     id: "4",
@@ -36,6 +39,7 @@ export const products: Product[] = [
     price: 200,
     category: "beverage",
     restaurantId: 4,
+    quantity: 1,
   },
   {
     id: "5",
@@ -45,6 +49,7 @@ export const products: Product[] = [
     price: 150,
     category: "beverage",
     restaurantId: 5,
+    quantity: 1,
   },
   {
     id: "6",
@@ -54,6 +59,7 @@ export const products: Product[] = [
     price: 550,
     category: "food",
     restaurantId: 6,
+    quantity: 1,
   },
   {
     id: "7",
@@ -63,6 +69,7 @@ export const products: Product[] = [
     price: 600,
     category: "food",
     restaurantId: 7,
+    quantity: 1,
   },
   {
     id: "8",
@@ -72,6 +79,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 8,
+    quantity: 1,
   },
   {
     id: "9",
@@ -81,6 +89,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 9,
+    quantity: 1,
   },
   {
     id: "10",
@@ -90,6 +99,7 @@ export const products: Product[] = [
     price: 250,
     category: "food",
     restaurantId: 10,
+    quantity: 1,
   },
   {
     id: "11",
@@ -99,6 +109,7 @@ export const products: Product[] = [
     price: 550,
     category: "food",
     restaurantId: 11,
+    quantity: 1,
   },
   {
     id: "12",
@@ -108,6 +119,7 @@ export const products: Product[] = [
     price: 600,
     category: "food",
     restaurantId: 12,
+    quantity: 1,
   },
   {
     id: "13",
@@ -117,6 +129,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 13,
+    quantity: 1,
   },
   {
     id: "14",
@@ -126,6 +139,7 @@ export const products: Product[] = [
     price: 650,
     category: "food",
     restaurantId: 14,
+    quantity: 1,
   },
   {
     id: "15",
@@ -135,6 +149,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 15,
+    quantity: 1,
   },
   {
     id: "16",
@@ -144,6 +159,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 16,
+    quantity: 1,
   },
   {
     id: "17",
@@ -153,6 +169,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 17,
+    quantity: 1,
   },
   {
     id: "18",
@@ -162,6 +179,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 18,
+    quantity: 1,
   },
   {
     id: "19",
@@ -171,6 +189,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 19,
+    quantity: 1,
   },
   {
     id: "20",
@@ -180,6 +199,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 20,
+    quantity: 1,
   },
   {
     id: "21",
@@ -189,6 +209,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 21,
+    quantity: 1,
   },
   {
     id: "22",
@@ -198,6 +219,7 @@ export const products: Product[] = [
     price: 600,
     category: "food",
     restaurantId: 22,
+    quantity: 1,
   },
   {
     id: "23",
@@ -207,6 +229,7 @@ export const products: Product[] = [
     price: 700,
     category: "food",
     restaurantId: 23,
+    quantity: 1,
   },
   {
     id: "24",
@@ -216,6 +239,7 @@ export const products: Product[] = [
     price: 650,
     category: "food",
     restaurantId: 24,
+    quantity: 1,
   },
   {
     id: "25",
@@ -225,6 +249,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 25,
+    quantity: 1,
   },
   {
     id: "26",
@@ -234,6 +259,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 26,
+    quantity: 1,
   },
   {
     id: "27",
@@ -243,6 +269,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 27,
+    quantity: 1,
   },
   {
     id: "28",
@@ -252,6 +279,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 28,
+    quantity: 1,
   },
   {
     id: "29",
@@ -261,6 +289,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 29,
+    quantity: 1,
   },
   {
     id: "30",
@@ -270,6 +299,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 30,
+    quantity: 1,
   },
   {
     id: "31",
@@ -279,6 +309,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 31,
+    quantity: 1,
   },
   {
     id: "32",
@@ -288,6 +319,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 32,
+    quantity: 1,
   },
   {
     id: "33",
@@ -297,6 +329,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 33,
+    quantity: 1,
   },
   {
     id: "34",
@@ -306,6 +339,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 34,
+    quantity: 1,
   },
   {
     id: "35",
@@ -315,6 +349,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 35,
+    quantity: 1,
   },
   {
     id: "36",
@@ -324,6 +359,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 36,
+    quantity: 1,
   },
   {
     id: "37",
@@ -333,6 +369,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 1,
+    quantity: 1,
   },
   {
     id: "38",
@@ -342,6 +379,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 2,
+    quantity: 1,
   },
   {
     id: "39",
@@ -351,6 +389,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 3,
+    quantity: 1,
   },
   {
     id: "40",
@@ -360,6 +399,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 4,
+    quantity: 1,
   },
   {
     id: "41",
@@ -369,6 +409,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 5,
+    quantity: 1,
   },
   {
     id: "42",
@@ -378,6 +419,7 @@ export const products: Product[] = [
     price: 500,
     category: "food",
     restaurantId: 6,
+    quantity: 1,
   },
   {
     id: "43",
@@ -387,6 +429,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 7,
+    quantity: 1,
   },
   {
     id: "44",
@@ -396,6 +439,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 8,
+    quantity: 1,
   },
   {
     id: "45",
@@ -405,6 +449,7 @@ export const products: Product[] = [
     price: 400,
     category: "food",
     restaurantId: 9,
+    quantity: 1,
   },
   {
     id: "46",
@@ -414,6 +459,7 @@ export const products: Product[] = [
     price: 350,
     category: "food",
     restaurantId: 10,
+    quantity: 1,
   },
   {
     id: "47",
@@ -423,6 +469,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 11,
+    quantity: 1,
   },
   {
     id: "48",
@@ -432,6 +479,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 12,
+    quantity: 1,
   },
   {
     id: "49",
@@ -441,6 +489,7 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 13,
+    quantity: 1,
   },
   {
     id: "50",
@@ -450,5 +499,6 @@ export const products: Product[] = [
     price: 450,
     category: "food",
     restaurantId: 14,
+    quantity: 1,
   },
 ];
