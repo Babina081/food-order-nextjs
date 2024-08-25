@@ -2,7 +2,13 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import cartReducer from "./features/cart/cartSlice";
 import productReducer from "./features/product/productSlice";
 import favoriteReducer from "./features/favorite/favoriteSlice";
-import { persistStore } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
+import storage from "redux-persist/lib/storage";
+
+const persistConfig = {
+  key: "root",
+  storage: storage,
+};
 
 const rootReducer = combineReducers({
   cart: cartReducer,
@@ -10,37 +16,18 @@ const rootReducer = combineReducers({
   favorite: favoriteReducer,
 });
 
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
 export const makeStore = () => {
-  if (typeof window === "undefined") {
-    // Server-side: no persistence
-    return configureStore({
-      reducer: rootReducer,
-      middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({ serializableCheck: false }),
-    });
-  } else {
-    // Client-side: with persistence
-    const { persistReducer, persistStore } = require("redux-persist");
-    const storage = require("redux-persist/lib/storage").default;
-
-    const persistConfig = {
-      key: "root",
-      storage: storage,
-    };
-
-    const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-    return configureStore({
-      reducer: persistedReducer,
-      middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware({ serializableCheck: false }),
-    });
-  }
+  return configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({ serializableCheck: false }),
+  });
 };
 
 export const store = makeStore();
-export const persistor =
-  typeof window !== "undefined" ? persistStore(store) : null;
+export const persistor = persistStore(store);
 
 export type AppStore = ReturnType<typeof makeStore>;
 export type RootState = ReturnType<AppStore["getState"]>;
