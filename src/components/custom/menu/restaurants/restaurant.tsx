@@ -92,8 +92,8 @@ export const Restaurant: React.FC<Props> = () => {
   };
 
   return (
-    <div className=" w-5/5 flex gap-2">
-      <div className="hidden sm:flex w-1/5 bg-gray-400/20 rounded-lg p-2  flex-col ">
+    <div className=" w-5/5 flex gap-2 relative">
+      <div className="hidden sm:flex w-1/5 bg-gray-400/20 rounded-lg p-2  flex-col sticky top-0 h-[50vh]">
         <Button
           className="text-lg font-bold mb-4 w-full lg:w-1/2"
           onClick={() => handleAvailabilityFilter(null)}
@@ -109,10 +109,10 @@ export const Restaurant: React.FC<Props> = () => {
           onFilterChange={handleAvailabilityFilter}
         ></OpenCloseStatus>
       </div>
-      <div className="w-full sm:w-3/5 ">
+      <div className="w-full sm:w-3/5 overflow-y-auto h-screen">
         <div className="pb-12 ">
           <Tabs defaultValue="all" className="  ">
-            <div className="overflow-x-auto flex flex-nowrap ">
+            <div className="overflow-x-auto flex flex-nowrap sticky top-0 bg-white z-10 ">
               {" "}
               <TabsList className="flex">
                 <TabsTrigger value="all" className="text-lg ">
@@ -146,7 +146,7 @@ export const Restaurant: React.FC<Props> = () => {
           </Tabs>
         </div>
       </div>
-      <div className="hidden w-1/5 bg-gray-400/20 rounded-lg p-2 h-auto sm:flex flex-col gap-3">
+      <div className="hidden w-1/5 bg-gray-400/20 rounded-lg p-2  sm:flex flex-col gap-3 sticky top-0  h-[50vh]">
         <div className="mb-2 font-bold">Sort By</div>
         <button
           className={`flex gap-2 items-center ${
