@@ -15,33 +15,56 @@ import { useState } from "react";
 const PRODUCTS_PER_PAGE = 12;
 
 const MenuSection = () => {
-  const [currentPage, setCurrentPage] = useState(1);
+  const [foodPage, setFoodPage] = useState(1);
+  const [beveragesPage, setBeveragesPage] = useState(1);
   const [currentCategory, setCurrentCategory] = useState("food");
-  const filteredProducts = products.filter(
-    (product) => product.category === currentCategory
+  const filteredFoodProducts = products.filter(
+    (product) => product.category === "food"
   );
-  const totalPages = Math.ceil(filteredProducts.length / PRODUCTS_PER_PAGE);
+  const filteredBeveragesProducts = products.filter(
+    (product) => product.category === "beverage"
+  );
+  const foodTotalPages = Math.ceil(
+    filteredFoodProducts.length / PRODUCTS_PER_PAGE
+  );
+  const beveragesTotalPages = Math.ceil(
+    filteredBeveragesProducts.length / PRODUCTS_PER_PAGE
+  );
 
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
+  const handleFoodPageChange = (page: number) => {
+    if (page >= 1 && page <= foodTotalPages) {
+      setFoodPage(page);
     }
   };
 
-  const displayedProducts = filteredProducts.slice(
-    (currentPage - 1) * PRODUCTS_PER_PAGE,
-    currentPage * PRODUCTS_PER_PAGE
+  const handleBeveragesPageChange = (page: number) => {
+    if (page >= 1 && page <= beveragesTotalPages) {
+      setBeveragesPage(page);
+    }
+  };
+
+  const displayedFoodProducts = filteredFoodProducts.slice(
+    (foodPage - 1) * PRODUCTS_PER_PAGE,
+    foodPage * PRODUCTS_PER_PAGE
+  );
+
+  const displayedBeveragesProducts = filteredBeveragesProducts.slice(
+    (beveragesPage - 1) * PRODUCTS_PER_PAGE,
+    beveragesPage * PRODUCTS_PER_PAGE
   );
   return (
     <section className="container">
-      <div className="  pb-12">
+      <div className="pb-12">
         <Tabs
           defaultValue="food"
           onValueChange={(value) => {
             setCurrentCategory(value);
-            setCurrentPage(1); // Reset to page 1 on category change
+            if (value === "food") {
+              setFoodPage(1); // Reset to page 1 on category change
+            } else if (value === "beverages") {
+              setBeveragesPage(1); // Reset to page 1 on category change
+            }
           }}
-          className=""
         >
           <TabsList>
             <TabsTrigger value="food" className="text-lg">
@@ -51,10 +74,12 @@ const MenuSection = () => {
               Beverages
             </TabsTrigger>
           </TabsList>
-          <TabsContent value={currentCategory}>
-            <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-              {displayedProducts.length ? (
-                displayedProducts.map((product) => (
+
+          {/* Food Tab Content */}
+          <TabsContent value="food">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+              {displayedFoodProducts.length ? (
+                displayedFoodProducts.map((product) => (
                   <ProductCard key={product.id} product={product} />
                 ))
               ) : (
@@ -62,29 +87,29 @@ const MenuSection = () => {
               )}
             </div>
 
-            {totalPages > 1 && (
+            {foodTotalPages > 1 && (
               <Pagination className="mt-4">
                 <PaginationContent>
                   <PaginationItem>
                     <PaginationPrevious
-                      onClick={() => handlePageChange(currentPage - 1)}
-                      className={`  ${
-                        currentPage === 1
+                      onClick={() => handleFoodPageChange(foodPage - 1)}
+                      className={`${
+                        foodPage === 1
                           ? "opacity-30 cursor-default"
-                          : " cursor-pointer"
+                          : "cursor-pointer"
                       }`}
                     />
                   </PaginationItem>
                   {Array.from(
-                    { length: totalPages },
+                    { length: foodTotalPages },
                     (_, index) => index + 1
                   ).map((page) => (
                     <PaginationItem key={page}>
                       <PaginationLink
-                        onClick={() => handlePageChange(page)}
+                        onClick={() => handleFoodPageChange(page)}
                         className={`cursor-pointer rounded-full ${
-                          currentPage === page
-                            ? "hover:bg-orange-300 bg-orange-400 text-white hover:text-white  rounded-full"
+                          foodPage === page
+                            ? "hover:bg-orange-300 bg-orange-400 text-white hover:text-white rounded-full"
                             : ""
                         }`}
                       >
@@ -95,11 +120,11 @@ const MenuSection = () => {
 
                   <PaginationItem>
                     <PaginationNext
-                      onClick={() => handlePageChange(currentPage + 1)}
+                      onClick={() => handleFoodPageChange(foodPage + 1)}
                       className={`${
-                        currentPage === totalPages
+                        foodPage === foodTotalPages
                           ? "opacity-30 cursor-default"
-                          : "cursor-pointer "
+                          : "cursor-pointer"
                       }`}
                     />
                   </PaginationItem>
@@ -107,15 +132,67 @@ const MenuSection = () => {
               </Pagination>
             )}
           </TabsContent>
+
+          {/* Beverages Tab Content */}
           <TabsContent value="beverages">
-            {" "}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-              {products
-                .filter((product) => product.category === "beverage")
-                .map((product) => (
-                  <ProductCard key={product.id} product={product}></ProductCard>
-                ))}
+              {displayedBeveragesProducts.length ? (
+                displayedBeveragesProducts.map((product) => (
+                  <ProductCard key={product.id} product={product} />
+                ))
+              ) : (
+                <p>No products available in this category.</p>
+              )}
             </div>
+
+            {beveragesTotalPages > 1 && (
+              <Pagination className="mt-4">
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      onClick={() =>
+                        handleBeveragesPageChange(beveragesPage - 1)
+                      }
+                      className={`${
+                        beveragesPage === 1
+                          ? "opacity-30 cursor-default"
+                          : "cursor-pointer"
+                      }`}
+                    />
+                  </PaginationItem>
+                  {Array.from(
+                    { length: beveragesTotalPages },
+                    (_, index) => index + 1
+                  ).map((page) => (
+                    <PaginationItem key={page}>
+                      <PaginationLink
+                        onClick={() => handleBeveragesPageChange(page)}
+                        className={`cursor-pointer rounded-full ${
+                          beveragesPage === page
+                            ? "hover:bg-orange-300 bg-orange-400 text-white hover:text-white rounded-full"
+                            : ""
+                        }`}
+                      >
+                        {page}
+                      </PaginationLink>
+                    </PaginationItem>
+                  ))}
+
+                  <PaginationItem>
+                    <PaginationNext
+                      onClick={() =>
+                        handleBeveragesPageChange(beveragesPage + 1)
+                      }
+                      className={`${
+                        beveragesPage === beveragesTotalPages
+                          ? "opacity-30 cursor-default"
+                          : "cursor-pointer"
+                      }`}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            )}
           </TabsContent>
         </Tabs>
       </div>
