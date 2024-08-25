@@ -52,6 +52,7 @@ const OpenCloseStatus = ({ onFilterChange }: OpenCloseStatusProps) => {
             id="all"
             className="w-4 h-4"
             onChange={handleChange}
+            defaultChecked
           />
           <label htmlFor="all">All</label>
         </div>
