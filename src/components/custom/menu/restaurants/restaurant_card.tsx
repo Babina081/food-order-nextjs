@@ -3,25 +3,59 @@ import { RestaurantInfoType } from "@/app/(home)/restaurants/page";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Restaurant } from "@/data/restaurants_list";
+import {
+  addFavorite,
+  removeFavorite,
+} from "@/lib/store/features/favorite/favoriteSlice";
+import { useAppDispatch, useAppSelector } from "@/lib/store/hooks";
+import { RootState } from "@/lib/store/store";
 import { Bike, ShoppingBagIcon, Star } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 type RestaurantPropsTypes = { resInfo: RestaurantInfoType };
 
 const RestaurantCard = ({ resInfo: initialResInfo }: RestaurantPropsTypes) => {
-  const [resInfo, setResInfo] = useState(initialResInfo);
-  const toggleFavorite = () => {
+  const dispatch = useAppDispatch();
+  const favorites = useAppSelector((state) => state.favorite.favorites);
+  const isFavorite = favorites.some((res: any) => res.id === initialResInfo.id);
+
+  // Update local state when favorite status changes
+  useEffect(() => {
     setResInfo((prevState) => ({
       ...prevState,
-      isFavorite: !prevState.isFavorite,
+      isFavorite,
     }));
-    console.log(resInfo.isFavorite === true ? "yes" : "no");
+  }, [isFavorite]);
+
+  const [resInfo, setResInfo] = useState(initialResInfo);
+
+  const toggleFavorite = () => {
+    const updatedFavoriteStatus = !resInfo.isFavorite;
+    setResInfo((prevState) => ({
+      ...prevState,
+      isFavorite: updatedFavoriteStatus,
+    }));
+
+    // Dispatch the action to update Redux state
+    if (updatedFavoriteStatus) {
+      dispatch(addFavorite(resInfo));
+      toast.success("Added to favorites!");
+    } else {
+      dispatch(removeFavorite(resInfo.id as string));
+      toast.error("Removed from favorites.");
+    }
   };
   return (
     <Card className="border-none  rounded-xl relative overflow-hidden shadow-sm shadow-primary/30">
-      <span className="absolute  rounded-tr-lg rounded-br-lg bg-green-700 top-6    p-3  h-7 flex flex-col items-center justify-center text-sm text-white uppercase font-extrabold">
+      <span
+        className={`absolute rounded-tr-lg rounded-br-lg 
+    ${resInfo.isAvailable ? "bg-green-700" : "bg-red-700"} 
+    top-6 p-3 h-7 flex flex-col items-center justify-center 
+    text-sm text-white uppercase font-extrabold`}
+      >
         {resInfo.isAvailable === true ? "Avialable" : "Closed"}
       </span>
       <>
@@ -43,12 +77,12 @@ const RestaurantCard = ({ resInfo: initialResInfo }: RestaurantPropsTypes) => {
         </CardContent>
       </>
       <CardContent className="h-16  flex justify-between items-center p-2 ">
-        {/* <ul className="flex flex-col   gap-1  ">
+        <ul className="flex flex-col   gap-1  ">
           {resInfo.services.map((service, s) => {
             return (
               <li
                 key={s}
-                className="text-sm capitalize flex  gap-1   items-center"
+                className="text-sm xl:text-xs xl:tracking-tighter capitalize flex  gap-1   items-center"
               >
                 {service === "delivery" && <Bike className="h-4 w-4" />}
                 {service === "takeaway" && (
@@ -58,7 +92,7 @@ const RestaurantCard = ({ resInfo: initialResInfo }: RestaurantPropsTypes) => {
               </li>
             );
           })}
-        </ul> */}
+        </ul>
         <Button className="bg-white border-2 border-primary text-primary text-sm font-extrabold hover:border-none hover:text-white relative">
           <Link href={"/restaurants/restaurant/" + resInfo.id}>
             Menu
