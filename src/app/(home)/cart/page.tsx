@@ -28,7 +28,7 @@ const CartPage = () => {
   console.log("list......", products);
 
   const totalPrice = products.reduce(
-    (total, product) => total + product.price * product.quantity,
+    (total: any, product: any) => total + product.price * product.quantity,
     0
   );
 
@@ -63,7 +63,7 @@ const CartPage = () => {
             <TableHead className="text-center w-1/5">Action</TableHead>
           </TableRow>
         </TableHeader>
-        {products.map((product, index) => {
+        {products.map((product: any, index: any) => {
           return (
             <TableBody key={index}>
               <TableRow>
