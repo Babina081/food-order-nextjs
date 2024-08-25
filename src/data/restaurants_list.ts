@@ -377,7 +377,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Or2k",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: true,
     favCount: 210,
     menuLists: [
@@ -492,7 +492,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Busy Bee Cafe",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: false,
     favCount: 45,
     menuLists: [
@@ -607,7 +607,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Aangan Restaurant",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: true,
     favCount: 132,
     menuLists: [
@@ -722,7 +722,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Pokhara Java",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: false,
     favCount: 30,
     menuLists: [
@@ -837,7 +837,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Lakeside Kitchen & Bar",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: true,
     favCount: 180,
     menuLists: [
@@ -952,7 +952,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Caffe Concerto",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: false,
     favCount: 12,
     menuLists: [
@@ -1067,7 +1067,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Yangling Tibetan Restaurant",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: true,
     favCount: 75,
     menuLists: [
@@ -1182,7 +1182,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Black & White Cafe",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: false,
     favCount: 18,
     menuLists: [
@@ -1297,7 +1297,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "La Bella Nepali Restaurant",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: true,
     favCount: 88,
     menuLists: [
@@ -1412,7 +1412,7 @@ export const restaurantsInfo: Restaurant[] = [
     name: "Momo Hut",
     locationUrl: "https://maps.app.goo.gl/7zmFdngTRSv5ovMJ6",
     address: "Lakeside Rd, Pokhara 33700, Nepal",
-    isAvailable: true,
+    isAvailable: false,
     isFavorite: false,
     favCount: 9,
     menuLists: [
