@@ -2,8 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import RestaurantCard from "@/components/custom/menu/restaurants/restaurant_card";
-import ProgressBar from "../../progress_bar";
-import ProgressCircle from "../../progress_circle";
 import { RestaurantInfoType } from "@/app/(home)/restaurants/page";
 import { restaurantsInfo } from "@/data/restaurants_list";
 import { Button } from "@/components/ui/button";
